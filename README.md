@@ -488,14 +488,14 @@ You can use the skills globally across your operating system or configure them o
 
 ### 1. Universal Python Installer (Recommended)
 
-A cross-platform Python installer (`install_skills.py`) is provided at the root of the repository:
+A cross-platform Python installer (`install_skills.py`) is provided at the root of the repository. It performs a **complete standalone physical copy** of the skills into your agent's permanent directory (`~/.gemini/skills`):
 
 ```bash
-# Clone the repository
+# Step 1: Clone the repository (e.g. to your Downloads or Temp folder)
 git clone https://github.com/aniketpal15/Antigravity-skills.git
 cd Antigravity-skills
 
-# Install ALL 4,639+ skills globally to ~/.gemini/skills
+# Step 2: Install ALL 4,639+ skills globally to ~/.gemini/skills
 python install_skills.py
 
 # Or install only a specific domain (e.g. Frontend UI/UX)
@@ -505,7 +505,15 @@ python install_skills.py 10-frontend
 python install_skills.py 04-backend
 python install_skills.py 08-databases
 python install_skills.py 06-security
+
+# Step 3 (Optional): Delete the cloned folder!
+# Since the installer makes a permanent standalone copy in ~/.gemini/skills, 
+# you can safely delete the entire cloned repository from your Downloads/work directory.
 ```
+
+> [!TIP]
+> **Can you delete the cloned repository after installation?**
+> **Yes!** `install_skills.py` performs a complete physical copy (`shutil.copytree`) of all `SKILL.md` documents, reference manuals, and helper scripts into your machine's permanent agent environment (`C:\Users\<User>\.gemini\skills` on Windows or `~/.gemini/skills` on macOS/Linux). No symlinks or shortcuts are used. You can safely delete the cloned repository folder immediately after installation to save disk space. If you ever want updates in the future, simply re-clone or pull new releases.
 
 ---
 
