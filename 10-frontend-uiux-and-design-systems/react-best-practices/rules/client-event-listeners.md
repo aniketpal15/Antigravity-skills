@@ -72,5 +72,3 @@ function Profile() {
   // ...
 }
 ```
-
-Match normalized keys and modifiers deliberately, avoid intercepting text entry, and remove subscriptions on unmount. Shared shortcut registration does not grant permission to execute privileged actions.

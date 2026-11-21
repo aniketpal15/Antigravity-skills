@@ -1,9 +1,9 @@
 ---
 name: deploy-to-vercel
-description: "Deploy applications and websites to Vercel. Use when the user requests deployment actions like \"deploy my app\", \"deploy and give me the link\", \"push this live\", or \"create a preview deployment\"."
-risk: critical
-source: "https://github.com/vercel-labs/agent-skills"
-date_added: "2026-06-02"
+description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
+metadata:
+  author: vercel
+  version: "4.0.0"
 ---
 
 # Deploy to Vercel
@@ -11,9 +11,6 @@ date_added: "2026-06-02"
 Deploy any project to Vercel. **Always deploy as preview** (not production) unless the user explicitly asks for production.
 
 The goal is to get the user into the best long-term setup: their project linked to Vercel with git-push deploys. Every method below tries to move the user closer to that state.
-
-## When to Use
-- Use this skill when the task matches this description: Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment".
 
 ## Step 1: Gather Project State
 
@@ -57,7 +54,7 @@ Either file means the project is linked. Check for both.
 
 ### Linked (`.vercel/` exists) + has git remote → Git Push
 
-A local link plus a Git remote does not prove Vercel Git integration. Verify the linked project, target directory, connected repository and production branch in the dashboard. Use a preview branch or a direct preview deployment; never push a production branch for a preview request.
+This is the ideal state. The project is linked and has git integration.
 
 1. **Ask the user before pushing.** Never push without explicit approval:
    ```
@@ -67,7 +64,7 @@ A local link plus a Git remote does not prove Vercel Git integration. Verify the
 
 2. **Commit and push:**
    ```bash
-   git add -- <reviewed-project-paths>
+   git add .
    git commit -m "deploy: <description of changes>"
    git push
    ```
@@ -78,7 +75,7 @@ A local link plus a Git remote does not prove Vercel Git integration. Verify the
    sleep 5
    vercel ls --format json
    ```
-   The JSON output has a `deployments` array. Match the project, commit SHA, branch and deployment target; the latest entry could belong to another build. A queued URL is not a successful build.
+   The JSON output has a `deployments` array. Find the latest entry — its `url` field is the preview URL.
 
    If the CLI is not authenticated, tell the user to check the Vercel dashboard or the commit status checks on their git provider for the preview URL.
 
@@ -114,7 +111,7 @@ The CLI is working but the project isn't linked yet. This is the opportunity to 
 2. **Once a team is selected, proceed directly to linking.** Tell the user what will happen but do not ask for separate confirmation:
    ```
    Linking this project to <team name> on Vercel. This will create a Vercel
-   project to deploy to and write local link metadata. Git auto-deployment requires a separately configured Git integration.
+   project to deploy to and enable automatic deployments on future git pushes.
    ```
 
 3. **If a git remote exists**, use repo-based linking with the selected team scope:
@@ -162,68 +159,21 @@ The Vercel CLI isn't set up at all.
 
 ---
 
-### No-Auth Fallback — claude.ai sandbox
+### No-Auth Fallback — `vercel deploy --temporary`
 
-**When to use:** Last resort when the CLI can't be installed or authenticated in the claude.ai sandbox. This requires no authentication — it returns a **Preview URL** (live site) and a **Claim URL** (transfer to your Vercel account).
+**When to use:** The CLI has no credentials and `vercel login` isn't possible (sandboxes, agents, non-interactive environments). Do **not** ask the user to approve a CLI login or device code first — try this.
 
 ```bash
-bash /mnt/skills/user/deploy-to-vercel/resources/deploy.sh [path]
+npx vercel@latest deploy [path] --temporary -y
 ```
 
-**Arguments:**
-- `path` - Directory to deploy, or a `.tgz` file (defaults to current directory)
+No account is needed. The CLI builds locally, deploys to a temporary production URL, and prints a **claim URL** plus how long until the deployment expires. Rerunning the command in the same directory redeploys the same temporary project until it expires.
 
-**Examples:**
-```bash
-# Deploy current directory
-bash /mnt/skills/user/deploy-to-vercel/resources/deploy.sh
+Temporary deployments don't work in CI or in a directory already linked to a Vercel project. See https://vercel.com/docs/deployments/deploy-without-logging-in.
 
-# Deploy specific project
-bash /mnt/skills/user/deploy-to-vercel/resources/deploy.sh /path/to/project
+**Tell the user:** "Your deployment is ready at [url]. It expires in [time] unless you claim it at [claimUrl]. Don't share the claim link."
 
-# Deploy existing tarball
-bash /mnt/skills/user/deploy-to-vercel/resources/deploy.sh /path/to/project.tgz
-```
-
-The helper guesses the framework and uploads an archive to the hosted endpoint shown in the script. Obtain authorization for that recipient and inspect the complete archive first: its small exclusion list is not a secret scanner and does not implement .gitignore/.vercelignore. A supplied archive is uploaded byte-for-byte. Returned URLs do not establish build success.
-
-**Tell the user:** "Deployment submitted at [previewUrl]; build status is unverified. The private claim link is [claimUrl]."
-
----
-
-### No-Auth Fallback — Codex sandbox
-
-**When to use:** In the Codex sandbox where the CLI may not be authenticated. Codex runs in a sandboxed environment by default — try the CLI first, and fall back to the deploy script if auth fails.
-
-1. **Check whether the Vercel CLI is installed** (no escalation needed for this check):
-   ```bash
-   command -v vercel
-   ```
-
-2. **If `vercel` is installed**, try deploying with the CLI:
-   ```bash
-   vercel deploy [path] -y --no-wait
-   ```
-
-3. **If `vercel` is not installed, or the CLI fails with "No existing credentials found"**, use the fallback script:
-   ```bash
-   skill_dir="<path-to-skill>"
-
-   # Deploy current directory
-   bash "$skill_dir/resources/deploy-codex.sh"
-
-   # Deploy specific project
-   bash "$skill_dir/resources/deploy-codex.sh" /path/to/project
-
-   # Deploy existing tarball
-   bash "$skill_dir/resources/deploy-codex.sh" /path/to/project.tgz
-   ```
-
-The same archive-review and recipient-authorization requirements apply. The script submits the archive and returns JSON; it does not verify the build. Keep the claim URL private to the requesting owner.
-
-**Tell the user:** "Deployment submitted at [previewUrl]; build status is unverified. The private claim link is [claimUrl]."
-
-**Escalated network access:** Follow the active environment approval policy if sandboxing blocks the actual deployment; no skill can authorize bypassing it. Do **not** escalate the `command -v vercel` check.
+**Escalated network access (Codex):** Only escalate the deploy command if sandboxing blocks the network call (`sandbox_permissions=require_escalated`).
 
 ---
 
@@ -231,21 +181,11 @@ The same archive-review and recipient-authorization requirements apply. The scri
 
 ### Claude Code / terminal-based agents
 
-You have full shell access. Do NOT use the `/mnt/skills/` path. Follow the decision flow above using the CLI directly.
+You have full shell access. Follow the decision flow above using the CLI directly.
 
-For the no-auth fallback, run the deploy script from the skill's installed location:
-```bash
-bash ~/.claude/skills/deploy-to-vercel/resources/deploy.sh [path]
-```
-The path may vary depending on where the user installed the skill.
+### Sandboxed environments (claude.ai, Codex)
 
-### Sandboxed environments (claude.ai)
-
-You likely cannot run `vercel login` or `git push`. Go directly to the **no-auth fallback — claude.ai sandbox**.
-
-### Codex
-
-Codex runs in a sandbox. Check if the CLI is available first, then fall back to the deploy script. Go to the **no-auth fallback — Codex sandbox**.
+Check whether the CLI is logged in with `vercel whoami`. If it is, follow Step 2, including team selection. If it isn't, use the **no-auth fallback**.
 
 ---
 
@@ -255,18 +195,9 @@ Always show the user the deployment URL.
 
 - **Git push:** Use `vercel ls --format json` to find the preview URL. If the CLI isn't authenticated, tell the user to check the Vercel dashboard or commit status checks.
 - **CLI deploy:** Show the URL returned by `vercel deploy --no-wait`. Use `vercel inspect <url>` to check build status and report it to the user.
-- **No-auth fallback:** Show both the preview URL and the claim URL:
-  ```
-  Deployment submitted; verify build status before calling it successful.
+- **No-auth fallback:** Show the deployment URL, the claim URL, and the expiry the CLI printed.
 
-  Preview URL: https://my-app-abc123.vercel.app
-  Claim URL:   https://vercel.com/claim-deployment?code=...
-
-  View your site at the Preview URL.
-  To transfer this deployment to your Vercel account, visit the Claim URL.
-  ```
-
-Verify the matched deployment status through the authenticated CLI/dashboard. Report pending or failed status truthfully; a URL alone is not live verification. Only fetch an expected project-owned HTTPS URL after checking its origin.
+**Do not** curl or fetch the deployed URL to verify it works. Just return the link.
 
 ---
 
@@ -280,13 +211,13 @@ If deployment fails due to network restrictions on claude.ai, tell the user:
 Deployment failed due to network restrictions. To fix this:
 
 1. Go to https://claude.ai/settings/capabilities
-2. Add *.vercel.com to the allowed domains
+2. Add *.vercel.com and registry.npmjs.org to the allowed domains
 3. Try deploying again
 ```
 
 ### Escalated Network Access (Codex / sandboxed environments)
 
-If deployment fails due to network issues (timeouts, DNS errors, connection resets) in a sandboxed environment, follow the active environment approval policy; a timeout alone does not prove sandbox blocking. Never bypass a denied network policy. Do not escalate the initial CLI availability check — only escalate the actual deploy command.
+If deployment fails due to network issues (timeouts, DNS errors, connection resets) in a sandboxed environment, rerun with escalated permissions (`sandbox_permissions=require_escalated`). Do not escalate the initial CLI availability check — only escalate the actual deploy command.
 
 Example guidance to the user:
 ```
@@ -296,9 +227,4 @@ the command with escalated permissions — want me to proceed?
 
 ### CLI Auth Failure
 
-If `vercel login` or `vercel deploy` fails with authentication errors, fall back to the no-auth deploy script (claude.ai or Codex variant, depending on the environment).
-
-## Limitations
-- Use this skill only when the task clearly matches the scope described above.
-- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+If `vercel login` or `vercel deploy` fails with authentication errors, use the no-auth fallback: `vercel deploy --temporary -y`.

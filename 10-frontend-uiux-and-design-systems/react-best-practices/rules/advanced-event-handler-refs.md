@@ -12,7 +12,7 @@ Store callbacks in refs when used in effects that shouldn't re-subscribe on call
 **Incorrect (re-subscribes on every render):**
 
 ```tsx
-function useWindowEvent(event: string, handler: () => void) {
+function useWindowEvent(event: string, handler: (e) => void) {
   useEffect(() => {
     window.addEventListener(event, handler)
     return () => window.removeEventListener(event, handler)
@@ -23,14 +23,14 @@ function useWindowEvent(event: string, handler: () => void) {
 **Correct (stable subscription):**
 
 ```tsx
-function useWindowEvent(event: string, handler: () => void) {
+function useWindowEvent(event: string, handler: (e) => void) {
   const handlerRef = useRef(handler)
   useEffect(() => {
     handlerRef.current = handler
   }, [handler])
 
   useEffect(() => {
-    const listener = () => handlerRef.current()
+    const listener = (e) => handlerRef.current(e)
     window.addEventListener(event, listener)
     return () => window.removeEventListener(event, listener)
   }, [event])
@@ -42,7 +42,7 @@ function useWindowEvent(event: string, handler: () => void) {
 ```tsx
 import { useEffectEvent } from 'react'
 
-function useWindowEvent(event: string, handler: () => void) {
+function useWindowEvent(event: string, handler: (e) => void) {
   const onEvent = useEffectEvent(handler)
 
   useEffect(() => {
@@ -52,6 +52,4 @@ function useWindowEvent(event: string, handler: () => void) {
 }
 ```
 
-`useEffectEvent` provides a cleaner API for the same pattern: it accesses the latest committed handler when invoked from Effect-managed events.
-
-Effect Events require a supporting React version and hooks linter. They access latest committed values but do not promise a stable identity; exclude Effect Events from Effect dependencies. Do not use them to hide real dependencies. The ref fallback updates after commit, not synchronously during render.
+`useEffectEvent` provides a cleaner API for the same pattern: it creates a stable function reference that always calls the latest version of the handler.

@@ -26,5 +26,3 @@ for (let i = 0; i < len; i++) {
   process(value)
 }
 ```
-
-Only hoist values that stay invariant: getters, mutations or per-iteration updates can change semantics.

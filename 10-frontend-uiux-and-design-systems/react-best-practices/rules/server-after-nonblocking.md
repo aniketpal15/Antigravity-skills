@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
 ```tsx
 import { after } from 'next/server'
-import { headers } from 'next/headers'
+import { headers, cookies } from 'next/headers'
 import { logUserAction } from '@/app/utils'
 
 export async function POST(request: Request) {
@@ -43,8 +43,9 @@ export async function POST(request: Request) {
   // Log after response is sent
   after(async () => {
     const userAgent = (await headers()).get('user-agent') || 'unknown'
+    const sessionCookie = (await cookies()).get('session-id')?.value || 'anonymous'
     
-    await logUserAction({ userAgent })
+    logUserAction({ sessionCookie, userAgent })
   })
   
   return new Response(JSON.stringify({ status: 'success' }), {
@@ -59,9 +60,9 @@ The response is sent immediately while logging happens in the background.
 **Common use cases:**
 
 - Analytics tracking
-- Best-effort diagnostic logging
-- Optional diagnostics
-- Non-critical cache housekeeping
+- Audit logging
+- Sending notifications
+- Cache invalidation
 - Cleanup tasks
 
 **Important notes:**
@@ -70,5 +71,3 @@ The response is sent immediately while logging happens in the background.
 - Works in Server Actions, Route Handlers, and Server Components
 
 Reference: [https://nextjs.org/docs/app/api-reference/functions/after](https://nextjs.org/docs/app/api-reference/functions/after)
-
-Use after only on a supporting Next version/hosting adapter and within its execution deadline. Await asynchronous logging inside its callback. Do not log session cookies, tokens or full request data. Required audit records, durable notifications, mutations and security-critical invalidation need a durable awaited path or queue; after is not delivery assurance.

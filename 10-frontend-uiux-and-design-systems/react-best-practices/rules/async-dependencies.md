@@ -1,7 +1,7 @@
 ---
 title: Dependency-Based Parallelization
 impact: CRITICAL
-impactDescription: workload-dependent parallel latency reduction
+impactDescription: 2-10× improvement
 tags: async, parallelization, dependencies, better-all
 ---
 
@@ -33,6 +33,19 @@ const { user, config, profile } = await all({
 })
 ```
 
-Reference: [https://github.com/shuding/better-all](https://github.com/shuding/better-all)
+**Alternative without extra dependencies:**
 
-Choose a reviewed dependency version compatible with the application; native Promise chains can express the same graph. Preserve authorization prerequisites and handle rejection of every started branch.
+We can also create all the promises first, and do `Promise.all()` at the end.
+
+```typescript
+const userPromise = fetchUser()
+const profilePromise = userPromise.then(user => fetchProfile(user.id))
+
+const [user, config, profile] = await Promise.all([
+  userPromise,
+  fetchConfig(),
+  profilePromise
+])
+```
+
+Reference: [https://github.com/shuding/better-all](https://github.com/shuding/better-all)

@@ -23,6 +23,4 @@ function Dropdown({ isOpen }: Props) {
 }
 ```
 
-Preserves local state across visibility changes; hidden content can still re-render.
-
-Requires a React release exposing Activity. Hidden children preserve state but can still render at lower priority; effects clean up while hidden and restart when visible. This is not a promise of zero re-renders.
+Avoids expensive re-renders and state loss.

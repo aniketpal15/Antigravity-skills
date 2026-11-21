@@ -1,25 +1,13 @@
 ---
-title: useLatest for Stable Callback Refs
+title: useEffectEvent for Stable Callback Refs
 impact: LOW
 impactDescription: prevents effect re-runs
-tags: advanced, hooks, useLatest, refs, optimization
+tags: advanced, hooks, useEffectEvent, refs, optimization
 ---
 
-## useLatest for Stable Callback Refs
+## useEffectEvent for Stable Callback Refs
 
 Access latest values in callbacks without adding them to dependency arrays. Prevents effect re-runs while avoiding stale closures.
-
-**Implementation:**
-
-```typescript
-function useLatest<T>(value: T) {
-  const ref = useRef(value)
-  useEffect(() => {
-    ref.current = value
-  }, [value])
-  return ref
-}
-```
 
 **Incorrect (effect re-runs on every callback change):**
 
@@ -34,18 +22,18 @@ function SearchInput({ onSearch }: { onSearch: (q: string) => void }) {
 }
 ```
 
-**Correct (stable effect, fresh callback):**
+**Correct (using React's useEffectEvent):**
 
 ```tsx
+import { useEffectEvent } from 'react';
+
 function SearchInput({ onSearch }: { onSearch: (q: string) => void }) {
   const [query, setQuery] = useState('')
-  const onSearchRef = useLatest(onSearch)
+  const onSearchEvent = useEffectEvent(onSearch)
 
   useEffect(() => {
-    const timeout = setTimeout(() => onSearchRef.current(query), 300)
+    const timeout = setTimeout(() => onSearchEvent(query), 300)
     return () => clearTimeout(timeout)
   }, [query])
 }
 ```
-
-This ref updates in a passive Effect and can temporarily expose the previous committed callback. Do not remove reactive dependencies merely to silence the linter; use a supported Effect Event when its semantics fit.
