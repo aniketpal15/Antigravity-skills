@@ -1,0 +1,37 @@
+---
+name: openmontage-jump-cut-reframe
+description: "OpenMontage Silence Cutter & Auto Reframe: Automatic jump cuts from silencedetect, plus a face-tracked 16:9 → 9:16 reframe with a smoothed crop. git clone https://github.com/calesthio/OpenMontage.git && cd OpenMontage && make setup"
+type: video-editing
+category: guide
+---
+
+# OpenMontage Silence Cutter & Auto Reframe
+
+Automatic jump cuts from silencedetect, plus a face-tracked 16:9 → 9:16 reframe with a smoothed crop.
+
+- **Type:** Guides · Cuts
+- **Status:** live
+- **Publisher:** Calesthio
+- **License:** AGPL-3.0
+- **Source:** <https://github.com/calesthio/OpenMontage/blob/main/tools/video>
+- **Works in:** Claude Code, Codex, Cursor, OpenClaw
+- **Tags:** `openmontage` `cuts` `skill`
+- **Full card, kept current:** <https://varg.ai/how-to/skills/openmontage-jump-cut-reframe.md>
+
+## Install
+
+```bash
+# Claude Code
+git clone https://github.com/calesthio/OpenMontage.git && cd OpenMontage && make setup
+```
+
+## Step-by-step tutorials that use it
+
+- [How to cut silences and add zooms to a video with AI](../../how-to/cut-silences-and-add-zooms.md): A talking video in, a tighter cut out: every pause over 0.55 s removed and a punch-in zoom on every other cut, in one FFmpeg run on your machine.
+
+## Run it on varg
+
+Generation (images, video, voice, music, lip-sync, captions, render) runs with one account on [varg.ai](https://varg.ai): the `varg-ai` skill (`npx skills add vargHQ/skills --skill varg-ai`) or the MCP server `https://mcp.varg.ai/mcp`. Quote the cost first with `estimate_cost`. 1 credit = $0.01, free plan, no card.
+
+---
+Part of [Awesome AI video agents](https://github.com/vargHQ/awesome-ai-video-agents). Found a problem with this card? [Open an issue](https://github.com/vargHQ/awesome-ai-video-agents/issues/new/choose) or fix it at the source and [tell varg how to](https://varg.ai/how-to/skills/openmontage-jump-cut-reframe).
