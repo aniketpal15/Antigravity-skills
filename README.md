@@ -1,12 +1,12 @@
 # 🌌 Antigravity Skills Vault
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C649%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C749%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Domains](https://img.shields.io/badge/Domains-18%20Specialized-blue?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-orange?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Agents](https://img.shields.io/badge/Works%20With-Antigravity%20%7C%20Claude%20%7C%20Gemini%20%7C%20Cursor-red?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 
-> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,649 skills across 18 specialized engineering domains.**
+> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,749 skills across 18 specialized engineering domains.**
 
 The **Antigravity Skills Vault** supercharges any AI coding assistant (Antigravity, Claude Code, Gemini CLI, Cursor, CrewAI) by injecting deep, domain-specific procedural knowledge directly into the agent's execution context. Instead of relying on generic prompt guessing, each skill delivers exact command patterns, idiomatic code rules, security checklists, reference guides, and auto-verification steps — turning your AI assistant into a true domain expert.
 
@@ -54,7 +54,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 
 | # | Domain | Skills | What It Does For You |
 |:---:|:---|:---:|:---|
-| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **2** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. |
+| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` activates Ponytail + Graphify + RTK to cut AI token usage by 20–85% across all tasks. |
 | 01 | **[3D Modeling & Rendering](./01-3d-modeling-and-rendering/)** | **7** | Automate Blender via Python, convert 3D file formats (GLTF, OBJ, FBX, STL), process meshes, train 3D Gaussian Splats, build Three.js / WebGPU scenes, and generate AI 3D models from text or images. |
 | 02 | **[Audio & Sound Engineering](./02-audio-and-sound-engineering/)** | **51** | Separate vocal and instrumental stems, master audio to broadcast loudness standards (LUFS), transcribe with speaker diarization, clone voices, synthesize TTS audiobooks and podcasts, and integrate live audio streaming APIs. |
 | 03 | **[Autonomous Agents & AI](./03-autonomous-agents-and-ai/)** | **214** | Design multi-agent swarm architectures, build evaluation and regression benchmarking suites, optimize prompt caching to slash LLM costs, manage agent memory and tool execution sandboxes, and enforce human-in-the-loop approval gates. |
@@ -73,7 +73,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 | 16 | **[Testing, QA & Debugging](./16-testing-qa-and-debugging/)** | **134** | Write flaky-free Playwright E2E suites, set up Jest / Pytest / JUnit with parameterized fixtures and 80%+ coverage gates, run K6 load tests under realistic profiles, debug with hypothesis-driven MREs, and test API contracts across microservices with Pact. |
 | 17 | **[UI Animation & Motion Graphics](./17-ui-animation-and-motion-graphics/)** | **44** | Orchestrate complex GSAP timelines and scroll-triggered reveals, implement React View Transitions, design spring-physics-based gestures, integrate Lottie vector animations, run 60 FPS animation performance audits, and build 2D physics simulations with Matter.js. |
 | 18 | **[Video, Photo Editing & VFX](./18-video-and-photo-editing-vfx/)** | **958** | Render personalized programmatic videos with Remotion (React-to-video), build complex FFmpeg filter graphs (hardware-accelerated transcoding, audio crossfades, chroma-keying, LUT grading), generate AI UGC ad videos at scale, script DaVinci Resolve and After Effects, and batch-process images. |
-| | **📦 Total Across All Domains** | **4,649** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
+| | **📦 Total Across All Domains** | **4,749** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
 
 ---
 
@@ -83,17 +83,18 @@ A detailed walkthrough of what each domain contains and the real-world tasks you
 
 ---
 
-### 🎛️ Universal Orchestration (`custom-skills/`) — 2 Skills
+### 🎛️ Universal Orchestration (`custom-skills/`) — 3 Skills
 
-These two skills act as the **front door** of the entire vault. They are designed to be installed alongside any other domain and work automatically on every task.
+These three skills act as the **front door** of the entire vault. They are designed to be installed alongside any other domain and work automatically on every task.
 
 | Skill | Trigger | What It Does |
 |:---|:---|:---|
 | `select-skill` | `/select skill <task>` | Deconstructs any complex task across all 18 domains, selects the top-ranked skill per domain, shows alternatives, and waits for your confirmation before executing. |
 | `ask-question` | `/ask question <idea>` | Socratic interrogation engine — asks targeted, numbered clarification questions about architecture, edge cases, data models, and UI flow. Produces a phase-by-phase blueprint and delegates to `select-skill`. |
+| `save-token` | `save token` or `/save token` | Token-Saver Orchestrator — simultaneously activates **Ponytail** (YAGNI minimalism), **Graphify** (zero-token local AST knowledge graph via `graphify update .`), and **RTK** (`rtk diff`, `rtk test`, `rtk err`, `rtk gain` wrappers). Cuts AI token usage by 20–85% across ALL domains. Works on code, writing, design, research, business, science, media, mobile, 3D, gaming, DevOps, and more. |
 
 **When to use:**
-> You have a complex task like *"Build a real-time collaborative whiteboard with authentication"* but you're not sure where to start. Run `/ask question` and the agent will methodically extract every missing requirement and produce a complete action plan.
+> You have a complex task like *"Build a real-time collaborative whiteboard with authentication"* but you're not sure where to start. Run `/ask question` and the agent will methodically extract every missing requirement and produce a complete action plan. Then type `save token` before any heavy task to slash token consumption automatically.
 
 ---
 
@@ -380,7 +381,7 @@ Graphify uses local Tree-Sitter parsers to build an offline semantic graph of yo
 
 ## 🎛️ Universal Orchestration Skills
 
-Located in [`custom-skills/`](./custom-skills/), these two skills work with **every other domain** and should always be installed first.
+Located in [`custom-skills/`](./custom-skills/), these three skills work with **every other domain** and should always be installed first.
 
 ### `select-skill` — Multi-Domain Task Router
 **Trigger:** `/select skill <your task description>`
@@ -418,6 +419,35 @@ Located in [`custom-skills/`](./custom-skills/), these two skills work with **ev
 
 ---
 
+### `save-token` — Universal Token-Saver Orchestrator
+**Trigger:** `save token` or `/save token`
+
+**How it works:**
+1. You type `save token` at the start of any message, then describe your task.
+2. **Ponytail** kicks in — the agent writes only what you asked for (YAGNI). No boilerplate, no filler, no unrequested scaffolding.
+3. **Graphify** runs `graphify update .` locally (zero AI tokens) and builds an AST knowledge graph of your project. The agent queries this graph instead of re-reading raw source files — massively cutting input tokens.
+4. **RTK** wrappers activate: `rtk diff`, `rtk test`, `rtk err`, `rtk git` compress terminal output to essential-only lines before it hits the LLM context window.
+5. At session end, `rtk gain` reports how many tokens were saved.
+
+**Works on every domain** — not just code. Writing, design, research, business, science, media, mobile, 3D, gaming, DevOps.
+
+**Example:**
+```
+save token. Refactor the auth module to use JWT refresh tokens.
+```
+→ Agent: activates Ponytail + runs `graphify update .` + uses `rtk diff` to show changes.
+→ Estimated savings: 40–70% fewer tokens vs. default mode.
+
+| Scenario | Token Reduction |
+|:---|:---:|
+| Reading large codebases | **40–70%** |
+| Debugging test failures | **50–80%** |
+| Git diff analysis | **60–85%** |
+| Writing tasks | **20–40%** |
+| General coding | **30–50%** |
+
+---
+
 ## 🚀 How to Install
 
 ### Prerequisites
@@ -439,7 +469,7 @@ cd Antigravity-skills
 
 **Step 2 — Run the installer:**
 ```bash
-# Install ALL 4,649 skills to ~/.gemini/skills/ (full vault)
+# Install ALL 4,749 skills to ~/.gemini/skills/ (full vault)
 python install_skills.py
 
 # OR: Install only the domains you need
@@ -453,7 +483,7 @@ python install_skills.py mobile         # Mobile Dev (51 skills)
 python install_skills.py testing        # Testing & QA (134 skills)
 python install_skills.py gsd            # GSD Workflow (72 skills)
 python install_skills.py agents         # AI Agents (214 skills)
-python install_skills.py custom         # Orchestration (2 skills)
+python install_skills.py custom         # Orchestration (3 skills)
 ```
 
 **Step 3 — Verify installation:**
@@ -597,7 +627,6 @@ triggers:
 
 ---
 
-| save-token | custom-skills/save-token/ | Token-Saver Orchestrator — activate with save token or /save token to engage Ponytail + Graphify + RTK simultaneously. Cuts AI token usage 20–85% across ALL domains. Runs graphify update . (zero-token local AST), RTK terminal wrappers (tk diff, tk test, tk err, tk gain), and enforces YAGNI minimalism on every output. |
 
 ## 🤝 Contributing
 
