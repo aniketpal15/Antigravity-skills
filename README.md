@@ -597,6 +597,8 @@ triggers:
 
 ---
 
+| save-token | custom-skills/save-token/ | Token-Saver Orchestrator — activate with save token or /save token to engage Ponytail + Graphify + RTK simultaneously. Cuts AI token usage 20–85% across ALL domains. Runs graphify update . (zero-token local AST), RTK terminal wrappers (tk diff, tk test, tk err, tk gain), and enforces YAGNI minimalism on every output. |
+
 ## 🤝 Contributing
 
 We welcome community contributions. To ensure high quality across the vault, all submissions must follow these standards:
