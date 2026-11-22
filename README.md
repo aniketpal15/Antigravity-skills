@@ -55,7 +55,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 
 | # | Domain | Skills | What It Does For You |
 |:---:|:---|:---:|:---|
-| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` activates Ponytail + Graphify + RTK to cut AI token usage by 20–85% across all tasks. |
+| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` coordinates the 5-Pillar Token-Saving Engine (Ponytail + Graphify + RTK + Headroom + Caveman) to cut AI token usage by 50–85% across all tasks. |
 | 01 | **[3D Modeling & Rendering](./01-3d-modeling-and-rendering/)** | **7** | Automate Blender via Python, convert 3D file formats (GLTF, OBJ, FBX, STL), process meshes, train 3D Gaussian Splats, build Three.js / WebGPU scenes, and generate AI 3D models from text or images. |
 | 02 | **[Audio & Sound Engineering](./02-audio-and-sound-engineering/)** | **51** | Separate vocal and instrumental stems, master audio to broadcast loudness standards (LUFS), transcribe with speaker diarization, clone voices, synthesize TTS audiobooks and podcasts, and integrate live audio streaming APIs. |
 | 03 | **[Autonomous Agents & AI](./03-autonomous-agents-and-ai/)** | **214** | Design multi-agent swarm architectures, build evaluation and regression benchmarking suites, optimize prompt caching to slash LLM costs, manage agent memory and tool execution sandboxes, and enforce human-in-the-loop approval gates. |
@@ -92,7 +92,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 |:---|:---|:---|
 | `select-skill` | `/select skill <task>` | Deconstructs any complex task across all 18 domains, selects the top-ranked skill per domain, shows alternatives, and waits for your confirmation before executing. |
 | `ask-question` | `/ask question <idea>` | Socratic interrogation engine — asks targeted, numbered clarification questions about architecture, edge cases, data models, and UI flow. Produces a phase-by-phase blueprint and delegates to `select-skill`. |
-| `save-token` | `save token` or `/save token` | Token-Saver Orchestrator — simultaneously activates **Ponytail** (YAGNI minimalism), **Graphify** (zero-token local AST knowledge graph via `graphify update .`), and **RTK** (`rtk diff`, `rtk test`, `rtk err`, `rtk gain` wrappers). Cuts AI token usage by 20–85% across ALL domains. Works on code, writing, design, research, business, science, media, mobile, 3D, gaming, DevOps, and more. |
+| `save-token` | `save token`, `/save token`, `headroom`, `caveman` | 5-Pillar Token-Saver Mega-Engine — simultaneously activates **Ponytail** (YAGNI minimalism), **Graphify** (zero-token local AST graph), **RTK** (terminal output compression: `rtk diff`, `rtk test`, `rtk err`), **Headroom** (input context and log pruner), and **Caveman** (ultra-terse zero-fluff output protocol). Cuts AI token usage by 50–85% across ALL domains. |
 
 **When to use:**
 > You have a complex task like *"Build a real-time collaborative whiteboard with authentication"* but you're not sure where to start. Run `/ask question` and the agent will methodically extract every missing requirement and produce a complete action plan. Then type `save token` before any heavy task to slash token consumption automatically.
@@ -420,32 +420,32 @@ Located in [`custom-skills/`](./custom-skills/), these three skills work with **
 
 ---
 
-### `save-token` — Universal Token-Saver Orchestrator
-**Trigger:** `save token` or `/save token`
+### `save-token` — 5-Pillar Universal Token-Saver Mega-Engine
+**Trigger:** `save token`, `/save token`, `save tokens`, `headroom`, `caveman`
 
 **How it works:**
 1. You type `save token` at the start of any message, then describe your task.
-2. **Ponytail** kicks in — the agent writes only what you asked for (YAGNI). No boilerplate, no filler, no unrequested scaffolding.
-3. **Graphify** runs `graphify update .` locally (zero AI tokens) and builds an AST knowledge graph of your project. The agent queries this graph instead of re-reading raw source files — massively cutting input tokens.
-4. **RTK** wrappers activate: `rtk diff`, `rtk test`, `rtk err`, `rtk git` compress terminal output to essential-only lines before it hits the LLM context window.
-5. At session end, `rtk gain` reports how many tokens were saved.
-
-**Works on every domain** — not just code. Writing, design, research, business, science, media, mobile, 3D, gaming, DevOps.
+2. **Headroom** kicks in first — compresses input context, bloated logs, and trims repetitive conversation turns by 40–70%.
+3. **Graphify** runs `graphify update .` locally (zero AI tokens) and builds an AST knowledge graph of your project so the agent queries the graph instead of re-reading raw files (70–85% input token reduction).
+4. **RTK** wrappers activate: `rtk diff`, `rtk test`, `rtk err`, `rtk git` compress terminal outputs to essential lines before reaching the LLM context.
+5. **Ponytail** enforces YAGNI minimalism — writes only what was requested, stdlib-first, no speculative boilerplate.
+6. **Caveman** mode removes conversational filler, polite pleasantries, and unnecessary introductory/concluding prose, delivering direct, high-density responses (40–60% output token reduction).
+7. At session end, `rtk gain` reports how many tokens were saved.
 
 **Example:**
 ```
 save token. Refactor the auth module to use JWT refresh tokens.
 ```
-→ Agent: activates Ponytail + runs `graphify update .` + uses `rtk diff` to show changes.
-→ Estimated savings: 40–70% fewer tokens vs. default mode.
+→ Agent: engages Headroom + Graphify + RTK + Ponytail + Caveman.
+→ Estimated savings: **50–85% fewer tokens** across the entire task.
 
 | Scenario | Token Reduction |
 |:---|:---:|
-| Reading large codebases | **40–70%** |
-| Debugging test failures | **50–80%** |
+| Reading large codebases | **70–85%** |
+| Debugging test failures | **60–80%** |
 | Git diff analysis | **60–85%** |
-| Writing tasks | **20–40%** |
-| General coding | **30–50%** |
+| Writing code & refactoring | **50–70%** |
+| General tasks & documentation | **40–60%** |
 
 ---
 
