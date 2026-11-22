@@ -1,12 +1,12 @@
 # 🌌 Antigravity Skills Vault
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C757%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C761%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Domains](https://img.shields.io/badge/Domains-18%20Specialized-blue?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-orange?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Agents](https://img.shields.io/badge/Works%20With-Antigravity%20%7C%20Claude%20%7C%20Gemini%20%7C%20Cursor-red?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 
-> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,757 skills across 18 specialized engineering domains.**
+> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,761 skills across 18 specialized engineering domains.**
 
 The **Antigravity Skills Vault** supercharges any AI coding assistant (Antigravity, Claude Code, Gemini CLI, Cursor, CrewAI) by injecting deep, domain-specific procedural knowledge directly into the agent's execution context. Instead of relying on generic prompt guessing, each skill delivers exact command patterns, idiomatic code rules, security checklists, reference guides, and auto-verification steps — turning your AI assistant into a true domain expert.
 
@@ -55,10 +55,10 @@ This table shows every domain in the vault, the exact number of skills it contai
 
 | # | Domain | Skills | What It Does For You |
 |:---:|:---|:---:|:---|
-| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` coordinates the 5-Pillar Token-Saving Engine (Ponytail + Graphify + RTK + Headroom + Caveman) to cut AI token usage by 50–85% across all tasks. |
+| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` coordinates the Memory-First 5-Pillar Token-Saving Mega-Engine (Anima/AgentKits memory offloading + Ponytail + Graphify + RTK + Headroom + Caveman) to eliminate 200k+ chat history context re-transmissions and slash token burn by 70–95% across all tasks. |
 | 01 | **[3D Modeling & Rendering](./01-3d-modeling-and-rendering/)** | **7** | Automate Blender via Python, convert 3D file formats (GLTF, OBJ, FBX, STL), process meshes, train 3D Gaussian Splats, build Three.js / WebGPU scenes, and generate AI 3D models from text or images. |
 | 02 | **[Audio & Sound Engineering](./02-audio-and-sound-engineering/)** | **51** | Separate vocal and instrumental stems, master audio to broadcast loudness standards (LUFS), transcribe with speaker diarization, clone voices, synthesize TTS audiobooks and podcasts, and integrate live audio streaming APIs. |
-| 03 | **[Autonomous Agents & AI](./03-autonomous-agents-and-ai/)** | **214** | Design multi-agent swarm architectures, build evaluation and regression benchmarking suites, optimize prompt caching to slash LLM costs, manage agent memory and tool execution sandboxes, and enforce human-in-the-loop approval gates. |
+| 03 | **[Autonomous Agents & AI](./03-autonomous-agents-and-ai/)** | **218** | Design multi-agent swarm architectures, build evaluation and regression benchmarking suites, optimize prompt caching to slash LLM costs, manage agent memory and tool execution sandboxes, and enforce human-in-the-loop approval gates. |
 | 04 | **[Backend Architecture & APIs](./04-backend-architecture-and-apis/)** | **156** | Scaffold production microservices in Go, Rust, Python (FastAPI), Java (Spring), and Node.js. Write OpenAPI v3 specs, implement OAuth2/JWT auth, design event-driven CQRS systems, and prevent race conditions with distributed locking. |
 | 05 | **[Business, Marketing & SEO](./05-business-marketing-and-seo/)** | **120** | Build programmatic SEO engines, generate JSON-LD schema markup, optimize for AI answer engines (GEO/AEO), audit Core Web Vitals, write high-converting copy, detect and improve AI-generated text, and track content ROI. |
 | 06 | **[Code Quality, Security & Compliance](./06-code-quality-security-and-compliance/)** | **164** | Run penetration testing playbooks (SQLi, XSS, SSRF, IDOR, JWT attacks), audit cloud IAM for privilege escalation, harden Docker containers, generate SOC2 / GDPR / ISO 27001 compliance reports, and perform code audits for memory leaks and deadlocks. |
@@ -74,7 +74,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 | 16 | **[Testing, QA & Debugging](./16-testing-qa-and-debugging/)** | **134** | Write flaky-free Playwright E2E suites, set up Jest / Pytest / JUnit with parameterized fixtures and 80%+ coverage gates, run K6 load tests under realistic profiles, debug with hypothesis-driven MREs, and test API contracts across microservices with Pact. |
 | 17 | **[UI Animation & Motion Graphics](./17-ui-animation-and-motion-graphics/)** | **44** | Orchestrate complex GSAP timelines and scroll-triggered reveals, implement React View Transitions, design spring-physics-based gestures, integrate Lottie vector animations, run 60 FPS animation performance audits, and build 2D physics simulations with Matter.js. |
 | 18 | **[Video, Photo Editing & VFX](./18-video-and-photo-editing-vfx/)** | **958** | Render personalized programmatic videos with Remotion (React-to-video), build complex FFmpeg filter graphs (hardware-accelerated transcoding, audio crossfades, chroma-keying, LUT grading), generate AI UGC ad videos at scale, script DaVinci Resolve and After Effects, and batch-process images. |
-| | **📦 Total Across All Domains** | **4,757** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
+| | **📦 Total Across All Domains** | **4,761** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
 
 ---
 
@@ -124,7 +124,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 
 ---
 
-### 03. Autonomous Agents & AI — 214 Skills
+### 03. Autonomous Agents & AI — 218 Skills
 
 **What you can build and automate:**
 - Design multi-agent swarms with hub-and-spoke, sequential, or hierarchical communication topologies.
@@ -133,7 +133,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 - Implement persistent agent memory: short-term working context, episodic logs, and semantic long-term retrieval over vector stores.
 - Harden agent tool execution against prompt injection, credential leaks, and sandbox escapes.
 
-**Key skills:** `agent-creator`, `multi-agent-task-orchestrator`, `agent-eval`, `agent-memory-systems`, `agent-security-hardening`, `llm-prompt-optimizer`, `prompt-caching-strategy`, `crewai`, `langgraph`, `rtk`, `claude-mem`, `headroom`, `caveman`, `awesome-mcp-servers`, `vibe-kanban`, `gstack`
+**Key skills:** `agent-creator`, `multi-agent-task-orchestrator`, `agent-eval`, `agent-memory-systems`, `agent-security-hardening`, `llm-prompt-optimizer`, `prompt-caching-strategy`, `crewai`, `langgraph`, `rtk`, `claude-mem`, `anima-memory`, `agentkits-memory`, `muscle-memory`, `mem0-agent`, `headroom`, `caveman`, `awesome-mcp-servers`, `vibe-kanban`, `gstack`
 
 ---
 
@@ -453,7 +453,7 @@ save token. Refactor the auth module to use JWT refresh tokens.
 
 All skills in this vault are designed to operate **globally across your operating system** and **persist across Google accounts**:
 
-- **Google Account Agnostic:** In Antigravity IDE and CLI, skills installed in `~/.gemini/skills/` are tied to your local workstation profile, not your Google login. When you switch or rotate Google accounts, all 4,757+ skills remain 100% active, accessible, and intact.
+- **Google Account Agnostic:** In Antigravity IDE and CLI, skills installed in `~/.gemini/skills/` are tied to your local workstation profile, not your Google login. When you switch or rotate Google accounts, all 4,761+ skills remain 100% active, accessible, and intact.
 - **Universal Directory Triggering:** You can open a terminal in **any folder or drive** (e.g., `C:\`, `D:\projects\`, nested repos) and trigger any skill via command slash (e.g. `/select-skill`, `/ask-question`, `/save-token`) or natural language. Antigravity discovers and executes them immediately.
 - **Cross-Account Token Protection:** The `save-token` orchestrator engages local tools (Ponytail minimalism, Graphify AST analysis, and RTK command compression) that run directly on your hardware without consuming your Google account quota, slashing token burn on every account you use.
 
@@ -480,7 +480,7 @@ cd Antigravity-skills
 
 **Step 2 — Run the installer:**
 ```bash
-# Install ALL 4,757 skills to ~/.gemini/skills/ (full vault)
+# Install ALL 4,761 skills to ~/.gemini/skills/ (full vault)
 python install_skills.py
 
 # OR: Install only the domains you need

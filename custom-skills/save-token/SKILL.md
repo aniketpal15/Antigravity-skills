@@ -3,18 +3,20 @@ name: save-token
 description: >
   ULTRA-HIGH SENSITIVITY TRIGGER. Trigger this skill PROACTIVELY and IMMEDIATELY whenever
   the user writes, mentions, or implies saving tokens, cutting token consumption, reducing AI cost,
-  conserving context budget, using RTK, updating Graphify, using Headroom, or enabling Caveman mode.
+  conserving context budget, using RTK, updating Graphify, using Headroom, enabling Caveman mode,
+  or activating persistent agent memory (Anima, Claude-Mem, AgentKits, Muscle-Memory).
   Even a casual phrase or keyword (e.g. 'save token', 'save tokens', 'cut tokens', 'reduce tokens',
   'token saver', 'low tokens', 'cheap tokens', 'budget tokens', 'less tokens', 'rtk', 'headroom',
-  'caveman') MUST instantly activate this skill.
-  Upon activation, it immediately engages the full 5-Pillar Token-Saving Engine:
-  1) Ponytail (YAGNI minimalism), 2) Graphify (zero-token local AST graph), 3) RTK (terminal command compression),
-  4) Headroom (input context and log compression), and 5) Caveman (ultra-terse, zero-fluff output protocol).
-  Dramatically slashes both input and output token consumption by 50–85% across ALL domains.
+  'caveman', 'memory save') MUST instantly activate this skill.
+  Upon activation, it immediately engages the Memory-First Multi-Engine Token Saving Architecture:
+  1) Anima & AgentKits Memory (condenses 200k+ chat transcripts into a 400-token file digest),
+  2) Headroom (prunes input context and log bloat), 3) Graphify & Muscle-Memory (0-token local AST and pattern replays),
+  4) RTK (terminal command compression), and 5) Ponytail & Caveman (ultra-terse, zero-fluff code generation).
+  Dramatically slashes token consumption by 70–90% across ALL domains.
   At the very TOP of every response/turn, it MANDATORILY calculates and displays the
-  5-Pillar Token Savings Receipt scoreboard at the very beginning before task output.
+  5-Pillar Token Savings Receipt scoreboard before any task output.
 metadata:
-  argument-hint: "[task description] — activates 5-pillar token-saver mode with top-of-turn savings receipt"
+  argument-hint: "[task description] — activates memory-first token-saver mode with top-of-turn savings receipt"
   triggers:
     - "save token"
     - "save tokens"
@@ -49,57 +51,63 @@ metadata:
     - "headroom"
     - "caveman"
     - "caveman mode"
+    - "anima"
+    - "agentkits"
+    - "muscle-memory"
+    - "claude-mem"
 ---
 
-# save-token — 5-Pillar Universal Token-Saver Mega-Engine
+# save-token — Memory-First Multi-Engine Token-Saver
 
-`save-token` is an **ultra-sensitive meta-orchestrator skill** that coordinates five complementary
-token-reduction strategies simultaneously, slashing both **input** and **output** tokens by **50% to 85%**
-across **every single domain** (code, writing, design, research, business, science, media, mobile, 3D, gaming, DevOps).
+`save-token` is an **ultra-sensitive meta-orchestrator skill** that solves the #1 cause of AI quota exhaustion:
+**accumulated conversational history (200,000+ tokens)**. By offloading chat context into local structured memory files
+and combining it with local zero-token AST code graphs, terminal proxies, and terse generation protocols,
+it slashes token consumption by **70% to 90%** across **every single domain**.
 
 ## ⚡ Ultra-High Sensitivity Triggering
 If the user's prompt contains **ANY** keyword, command, or conversational phrase related to saving or reducing tokens (e.g., `save token`, `save tokens`, `reduce tokens`, `cut tokens`, `token saver`, `low tokens`, `conserve tokens`, `rtk`, `headroom`, `caveman`), the agent **MUST IMMEDIATELY engage this skill without hesitation**.
 
 ---
 
-## 🏛️ The 5-Pillar Token-Saving Architecture
+## 🏛️ The Memory-First Token Saving Engine
 
-| Pillar | Direction | Tool / Protocol | Token Reduction Mechanism | Typical Savings |
-|:---:|:---:|:---|:---|:---:|
-| **1. Ponytail** | Output | Built-in GSD Rule | **YAGNI Minimalism**: Writes only requested code. No speculative abstractions, scaffolding, or unused imports. | **30–50%** |
-| **2. Graphify** | Input | `graphify update .` | **Zero-Token Local AST Graph**: Queries offline Tree-Sitter code graphs instead of repeatedly reading raw files. | **70–85%** |
-| **3. RTK** | Input | `rtk` Rust CLI Proxy | **Terminal Output Compression**: Strips passing tests, progress bars, and surrounding diff padding from CLI commands. | **50–80%** |
-| **4. Headroom** | Input | `headroom` Context Pruner | **Intelligent Context Compression**: Prunes conversation turn bloat, strips redundant logs, and summarizes file interfaces. | **40–70%** |
-| **5. Caveman** | Output | `caveman` Protocol | **Zero-Fluff Dense Output**: Strips polite pleasantries, filler phrases, and repetitive introductions/conclusions. | **40–60%** |
+| Layer | Engines | Token Reduction Mechanism | Typical Savings |
+|:---|:---|:---|:---:|
+| **1. Memory Offloading** | `anima-memory`, `agentkits-memory`, `claude-mem`, `planning-with-files` | **The History Killer**: Condenses 200k+ chat transcripts into a compact ~400-token file digest (`.ai/memory/state.md`). | **80–95% on History** |
+| **2. Context Pruning** | `headroom`, `context-compression` | **Log & Turn Pruner**: Trims bloated test dumps, npm outputs, and redundant turns before sending context to the LLM. | **40–70% on Inputs** |
+| **3. Zero-Token Intelligence** | `graphify`, `muscle-memory` | **Offline Tree-Sitter & Pattern Cache**: Queries local code graphs and replays cached boilerplate with 0 API tokens. | **70–85% on Files** |
+| **4. Terminal Proxy** | `rtk` (Rust Token Killer) | **CLI Filter**: Intercepts terminal commands, stripping passing tests and unchanged git diff context. | **50–80% on Commands** |
+| **5. Dense Generation** | `ponytail`, `caveman` | **Zero-Fluff Code Output**: Delivers pure, dense code and tables without conversational padding. | **40–60% on Outputs** |
 
 ---
 
 ## 🚀 Activation & Immediate Top-of-Response Output
 
-When triggered, the agent **MUST ALWAYS place the 5-PILLAR TOKEN SAVINGS RECEIPT at the very TOP of the response**:
+When triggered, the agent **MUST ALWAYS place the TOKEN SAVINGS RECEIPT at the very TOP of the response**:
 
 ```markdown
 ────────────────────────────────────────────────────────
-🪙 5-PILLAR TOKEN SAVINGS RECEIPT (This Turn)
+🪙 TOKEN SAVINGS RECEIPT (This Turn)
 • Uncompressed Baseline: ~[Estimated Baseline] tokens
 • Actual Consumed:        ~[Actual Consumed] tokens
 • Total Tokens Saved:    +[Total Saved] tokens ([Percentage]% Reduction)
-  ├─ 🕸️ Graphify (AST vs raw file reads): +[Graphify Saved] tokens
-  ├─ 🗜️ Headroom (Context & log pruner):  +[Headroom Saved] tokens
-  ├─ 🦀 RTK (Terminal diff/test filter):  +[RTK Saved] tokens
-  └─ 🧵 Ponytail + Caveman (No fluff):    +[Caveman/Ponytail Saved] tokens
+  ├─ 🧠 Memory Offloading (Context digest vs 200k+ transcript): +[Memory Saved] tokens
+  ├─ 🕸️ Graphify & Muscle (AST lookups & 0-token replays):      +[Graphify Saved] tokens
+  ├─ 🗜️ Headroom (Pruned turn bloat & raw log traces):          +[Headroom Saved] tokens
+  ├─ 🦀 RTK (Terminal diff/test filter):                         +[RTK Saved] tokens
+  └─ 🧵 Ponytail + Caveman (No fluff code generation):           +[Caveman/Ponytail Saved] tokens
 ────────────────────────────────────────────────────────
 ```
 
-Followed immediately by the active mode status and task execution:
+Followed immediately by active mode status and task execution:
 
 ```markdown
-🪙 Token-Saver Mode ACTIVE (5-Pillar Mega-Engine)
-   ✅ 1. Ponytail (YAGNI minimalism) — speculative boilerplate eliminated
-   ✅ 2. Graphify (Local AST Engine) — knowledge graph active (0 AI tokens)
+🪙 Token-Saver Mode ACTIVE (Memory-First Multi-Engine)
+   ✅ 1. Memory Offload (Anima + Claude-Mem) — 200k chat history condensed to 400-token state
+   ✅ 2. Graphify & Muscle-Memory — local AST graph & pattern cache active (0 AI tokens)
    ✅ 3. RTK (Rust Token Killer) — terminal wrappers active (rtk diff | rtk test | rtk err)
    ✅ 4. Headroom (Context Pruner) — input logs & turns compressed (40-70% input cut)
-   ✅ 5. Caveman (Terse Output Protocol) — zero conversational fluff (40-60% output cut)
+   ✅ 5. Ponytail & Caveman — zero conversational fluff, code-first delivery
    📊 Session token tracking: ON
 ```
 
@@ -107,51 +115,17 @@ Followed immediately by the active mode status and task execution:
 
 ## 📋 The 5-Step Execution Protocol
 
-### Step 1: Headroom Input Pruning
-Before ingesting context, large files, or error dumps:
-- Compress bloated server logs, test histories, and file collections.
-- Remove redundant conversational turns and repeated background context.
+### Step 1: Memory Snapshot & Context Offload
+Capture active project state, recent user decisions, and immediate next steps into `.ai/memory/session.md` (~400 tokens) to kill context accumulation.
 
-### Step 2: Graphify Knowledge Graph Lookup
-Run the local AST parser immediately on project files (zero AI tokens):
-```bash
-graphify update .
-```
-Then query the graph for architecture context instead of reading whole source files:
-```bash
-graphify query "auth module signatures and imports"
-```
+### Step 2: Headroom Input Pruning
+Compress bloated terminal dumps, test logs, and remove conversational filler from input context.
 
-### Step 3: RTK Command Wrapping
-Wrap all terminal commands to strip verbose noise before it reaches the LLM context:
-```bash
-rtk diff            # compact git diffs without unchanged lines
-rtk test            # only failing assertions, no passing logs
-rtk err             # isolated error root-cause line
-rtk git             # compact status and history
-```
+### Step 3: Graphify & Muscle-Memory Local Queries
+Query local Tree-Sitter AST graphs instead of reading raw files; replay standard boilerplate templates locally.
 
-### Step 4: Ponytail + Caveman Code Generation
-When generating solutions:
-- **Ponytail**: Implement standard library / platform-native features first. No unnecessary packages.
-- **Caveman**: Deliver code and technical answers directly. No "Sure! Here is...", no conversational filler, and no repetitive closing summaries.
+### Step 4: RTK Command Wrapping
+Execute CLI operations using RTK proxies (`rtk diff`, `rtk test`, `rtk err`, `rtk git`).
 
-### Step 5: Calculation Formula for Top Receipt:
-- **Uncompressed Baseline**: The estimated token cost if raw files were read in full, raw test/diff logs were dumped into context, and verbose conversational pleasantries were written.
-- **Actual Consumed**: The actual compact token footprint generated.
-- **Graphify Delta**: Raw file size avoided through localized AST symbol queries ($\approx \text{chars} / 4$).
-- **Headroom Delta**: Bloated log buffers and turn history trimmed before prompt submission ($\approx \text{chars} / 4$).
-- **RTK Delta**: Passing test suites and unchanged diff padding stripped by RTK proxy ($\approx \text{chars} / 4$).
-- **Ponytail + Caveman Delta**: Conversational pleasantries, boilerplate, and speculative scaffolding eliminated ($\approx \text{chars} / 4$).
-
----
-
-## 📈 Token Saving Potential by Task
-
-| Task Type | Without save-token | With 5-Pillar save-token | Token Reduction |
-|:---|:---:|:---:|:---:|
-| **Reviewing large codebases** | ~35,000 tokens | ~6,500 tokens | **~81% Savings** |
-| **Debugging test failure logs** | ~20,000 tokens | ~3,500 tokens | **~82% Savings** |
-| **Multi-file refactoring** | ~28,000 tokens | ~7,000 tokens | **~75% Savings** |
-| **Git diff & PR reviews** | ~15,000 tokens | ~2,200 tokens | **~85% Savings** |
-| **Writing code & scripts** | ~8,000 tokens | ~2,800 tokens | **~65% Savings** |
+### Step 5: Ponytail + Caveman Generation
+Deliver direct code and technical answers with zero polite filler or essay-style conclusions.
