@@ -1,12 +1,12 @@
 # 🌌 Antigravity Skills Vault
 
-[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C749%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
+[![Total Skills](https://img.shields.io/badge/Total%20Skills-4%2C757%2B-blueviolet?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Domains](https://img.shields.io/badge/Domains-18%20Specialized-blue?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-orange?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 [![Agents](https://img.shields.io/badge/Works%20With-Antigravity%20%7C%20Claude%20%7C%20Gemini%20%7C%20Cursor-red?style=for-the-badge)](https://github.com/aniketpal15/Antigravity-skills)
 
-> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,749 skills across 18 specialized engineering domains.**
+> **The largest open-source modular intelligence library for autonomous AI developer assistants — 4,757 skills across 18 specialized engineering domains.**
 
 The **Antigravity Skills Vault** supercharges any AI coding assistant (Antigravity, Claude Code, Gemini CLI, Cursor, CrewAI) by injecting deep, domain-specific procedural knowledge directly into the agent's execution context. Instead of relying on generic prompt guessing, each skill delivers exact command patterns, idiomatic code rules, security checklists, reference guides, and auto-verification steps — turning your AI assistant into a true domain expert.
 
@@ -74,7 +74,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 | 16 | **[Testing, QA & Debugging](./16-testing-qa-and-debugging/)** | **134** | Write flaky-free Playwright E2E suites, set up Jest / Pytest / JUnit with parameterized fixtures and 80%+ coverage gates, run K6 load tests under realistic profiles, debug with hypothesis-driven MREs, and test API contracts across microservices with Pact. |
 | 17 | **[UI Animation & Motion Graphics](./17-ui-animation-and-motion-graphics/)** | **44** | Orchestrate complex GSAP timelines and scroll-triggered reveals, implement React View Transitions, design spring-physics-based gestures, integrate Lottie vector animations, run 60 FPS animation performance audits, and build 2D physics simulations with Matter.js. |
 | 18 | **[Video, Photo Editing & VFX](./18-video-and-photo-editing-vfx/)** | **958** | Render personalized programmatic videos with Remotion (React-to-video), build complex FFmpeg filter graphs (hardware-accelerated transcoding, audio crossfades, chroma-keying, LUT grading), generate AI UGC ad videos at scale, script DaVinci Resolve and After Effects, and batch-process images. |
-| | **📦 Total Across All Domains** | **4,749** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
+| | **📦 Total Across All Domains** | **4,757** | **Complete full-stack, creative, and scientific engineering intelligence in one vault.** |
 
 ---
 
@@ -133,7 +133,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 - Implement persistent agent memory: short-term working context, episodic logs, and semantic long-term retrieval over vector stores.
 - Harden agent tool execution against prompt injection, credential leaks, and sandbox escapes.
 
-**Key skills:** `agent-creator`, `multi-agent-task-orchestrator`, `agent-eval`, `agent-memory-systems`, `agent-security-hardening`, `llm-prompt-optimizer`, `prompt-caching-strategy`, `crewai`, `langgraph`, `rtk`
+**Key skills:** `agent-creator`, `multi-agent-task-orchestrator`, `agent-eval`, `agent-memory-systems`, `agent-security-hardening`, `llm-prompt-optimizer`, `prompt-caching-strategy`, `crewai`, `langgraph`, `rtk`, `claude-mem`, `headroom`, `caveman`, `awesome-mcp-servers`, `vibe-kanban`, `gstack`
 
 ---
 
@@ -223,7 +223,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 - Eliminate "AI-generated slop" UIs with high-craft editorial layouts, micro-typography, whitespace discipline, and visual hierarchy rules.
 - Create virtualized data tables, complex multi-step forms, real-time dashboards, and drag-and-drop interfaces.
 
-**Key skills:** `react-best-practices`, `nextjs-app-router-patterns`, `tailwind-design-system`, `shadcn`, `ui-a11y`, `better-ui`, `anti-ui-slop`, `zustand-store-ts`, `web-design-guidelines`, `composition-patterns`
+**Key skills:** `react-best-practices`, `nextjs-app-router-patterns`, `tailwind-design-system`, `shadcn`, `ui-a11y`, `better-ui`, `anti-ui-slop`, `zustand-store-ts`, `web-design-guidelines`, `composition-patterns`, `mattpocock-skills`
 
 ---
 
@@ -248,7 +248,7 @@ The massive core of the vault. Contains specialist playbooks for every major pro
 | Elixir | `elixir-pro` | OTP, GenServer, pattern matching, Phoenix LiveView |
 | Scala | `scala-pro` | Functional patterns, Akka, type classes, cats |
 
-**Frameworks & Tools:** `django-patterns`, `fastapi-patterns`, `springboot-patterns`, `laravel-expert`, `nestjs-expert`, `rails-patterns`, `bash-pro`, `powershell-windows`, `linux-shell-scripting`, `writing-skills`, `wiki-architect`, `xlsx`, `pdf` and 2,000+ more.
+**Frameworks & Tools:** `django-patterns`, `fastapi-patterns`, `springboot-patterns`, `laravel-expert`, `nestjs-expert`, `rails-patterns`, `bash-pro`, `powershell-windows`, `linux-shell-scripting`, `writing-skills`, `wiki-architect`, `xlsx`, `pdf`, `repomix` and 2,000+ more.
 
 ---
 
@@ -453,7 +453,7 @@ save token. Refactor the auth module to use JWT refresh tokens.
 
 All skills in this vault are designed to operate **globally across your operating system** and **persist across Google accounts**:
 
-- **Google Account Agnostic:** In Antigravity IDE and CLI, skills installed in `~/.gemini/skills/` are tied to your local workstation profile, not your Google login. When you switch or rotate Google accounts, all 4,749+ skills remain 100% active, accessible, and intact.
+- **Google Account Agnostic:** In Antigravity IDE and CLI, skills installed in `~/.gemini/skills/` are tied to your local workstation profile, not your Google login. When you switch or rotate Google accounts, all 4,757+ skills remain 100% active, accessible, and intact.
 - **Universal Directory Triggering:** You can open a terminal in **any folder or drive** (e.g., `C:\`, `D:\projects\`, nested repos) and trigger any skill via command slash (e.g. `/select-skill`, `/ask-question`, `/save-token`) or natural language. Antigravity discovers and executes them immediately.
 - **Cross-Account Token Protection:** The `save-token` orchestrator engages local tools (Ponytail minimalism, Graphify AST analysis, and RTK command compression) that run directly on your hardware without consuming your Google account quota, slashing token burn on every account you use.
 
@@ -480,7 +480,7 @@ cd Antigravity-skills
 
 **Step 2 — Run the installer:**
 ```bash
-# Install ALL 4,749 skills to ~/.gemini/skills/ (full vault)
+# Install ALL 4,757 skills to ~/.gemini/skills/ (full vault)
 python install_skills.py
 
 # OR: Install only the domains you need
