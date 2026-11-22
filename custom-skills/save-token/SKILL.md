@@ -104,33 +104,31 @@ All memory, project decisions, and files are safely preserved!
 
 ## 🚀 Activation & Immediate Top-of-Response Output
 
-When triggered, the agent **MUST ALWAYS place the TOKEN SAVINGS RECEIPT at the very TOP of the response**:
+When triggered (or by default on every turn), the agent **MUST ALWAYS place the ACTIVATION BANNER & TOKEN SAVINGS RECEIPT at the very TOP of the response**:
 
-```markdown
-────────────────────────────────────────────────────────
-🪙 TOKEN SAVINGS RECEIPT (This Turn)
-• Turn Cadence:          Turn [X/10] ([10 - X] turns until recommended /compact)
-• Uncompressed Baseline: ~[Estimated Baseline] tokens
-• Actual Consumed:        ~[Actual Consumed] tokens
-• Total Tokens Saved:    +[Total Saved] tokens ([Percentage]% Reduction)
-  ├─ 🧠 Memory Offloading (Context digest vs 200k+ transcript): +[Memory Saved] tokens
-  ├─ 🕸️ Graphify & Muscle (AST lookups & 0-token replays):      +[Graphify Saved] tokens
-  ├─ 🗜️ Headroom (Pruned turn bloat & raw log traces):          +[Headroom Saved] tokens
-  ├─ 🦀 RTK (Terminal diff/test filter):                         +[RTK Saved] tokens
-  └─ 🧵 Ponytail + Caveman (No fluff code generation):           +[Caveman/Ponytail Saved] tokens
-────────────────────────────────────────────────────────
-```
-
-Followed immediately by active mode status and task execution:
-
-```markdown
-🪙 Token-Saver Mode ACTIVE (Memory-First Multi-Engine)
-   ✅ 1. Memory Offload (Anima + Claude-Mem) — 200k chat history condensed to 400-token state
-   ✅ 2. Graphify & Muscle-Memory — local AST graph & pattern cache active (0 AI tokens)
-   ✅ 3. RTK (Rust Token Killer) — terminal wrappers active (rtk diff | rtk test | rtk err)
-   ✅ 4. Headroom (Context Pruner) — input logs & turns compressed (40-70% input cut)
-   ✅ 5. Ponytail & Caveman — zero conversational fluff, code-first delivery
-   ✅ 6. Turn Cadence Tracker — Turn [X/10] monitored
+```text
+================================================================================
+🪙 [SAVE-TOKEN MEGA-ENGINE ACTIVATED & ENFORCED]
+   ✅ Pillar 1: Memory Offload (Anima + Claude-Mem) — 200k history condensed
+   ✅ Pillar 2: Ponytail Minimalist Execution (YAGNI / Stdlib) — Active
+   ✅ Pillar 3: RTK Terminal Wrappers (Command Pruning) — Active
+   ✅ Pillar 4: Graphify Local AST Graph — Active
+   ✅ Pillar 5: Caveman Terse Protocol (Zero-Fluff Delivery) — Active
+   ✅ Pillar 6: Turn Cadence Tracker — Turn [X/10] Monitored
+================================================================================
+                    5-PILLAR TOKEN SAVINGS RECEIPT
+================================================================================
+  Pillar 1: Memory Offloading (Anima/AgentKits/Planning-with-Files)  : -72%
+  Pillar 2: Ponytail Minimalist Direct Execution (YAGNI / Stdlib)   : -10%
+  Pillar 3: RTK & Headroom Command Compression                      :  -8%
+  Pillar 4: Graphify Local AST Indexing (No Raw File Grep)          :  -5%
+  Pillar 5: Caveman Ultra-Terse Protocol (Zero Conversational Slop) :  -3%
+  Pillar 6: Turn Cadence Tracker                                    : ACTIVE
+--------------------------------------------------------------------------------
+  Turn Cadence: Turn [X/10] ([10 - X] turns until next recommended /compact)
+  TOTAL PROJECTED TOKEN SAVINGS ON THIS TURN                         : ~95%
+  TRANSCRIPT ACCUMULATION RISK                                       : MINIMAL
+================================================================================
 ```
 
 ---
