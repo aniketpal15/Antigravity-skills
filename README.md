@@ -19,11 +19,12 @@ The **Antigravity Skills Vault** supercharges any AI coding assistant (Antigravi
 3. [Domain-by-Domain Breakdown](#-domain-by-domain-breakdown)
 4. [Token-Saving Power Tools](#-token-saving-power-tools)
 5. [Universal Orchestration Skills](#-universal-orchestration-skills)
-6. [How to Install](#-how-to-install)
-7. [Anatomy of a Skill](#-anatomy-of-a-skill)
-8. [Supported AI Agents & Platforms](#-supported-ai-agents--platforms)
-9. [Contributing](#-contributing)
-10. [License](#-license)
+6. [Global Availability & Multi-Account Persistence](#-global-availability--multi-account-persistence)
+7. [How to Install](#-how-to-install)
+8. [Anatomy of a Skill](#-anatomy-of-a-skill)
+9. [Supported AI Agents & Platforms](#-supported-ai-agents--platforms)
+10. [Contributing](#-contributing)
+11. [License](#-license)
 
 ---
 
@@ -445,6 +446,16 @@ save token. Refactor the auth module to use JWT refresh tokens.
 | Git diff analysis | **60–85%** |
 | Writing tasks | **20–40%** |
 | General coding | **30–50%** |
+
+---
+
+## 🌐 Global Availability & Multi-Account Persistence
+
+All skills in this vault are designed to operate **globally across your operating system** and **persist across Google accounts**:
+
+- **Google Account Agnostic:** In Antigravity IDE and CLI, skills installed in `~/.gemini/skills/` are tied to your local workstation profile, not your Google login. When you switch or rotate Google accounts, all 4,749+ skills remain 100% active, accessible, and intact.
+- **Universal Directory Triggering:** You can open a terminal in **any folder or drive** (e.g., `C:\`, `D:\projects\`, nested repos) and trigger any skill via command slash (e.g. `/select-skill`, `/ask-question`, `/save-token`) or natural language. Antigravity discovers and executes them immediately.
+- **Cross-Account Token Protection:** The `save-token` orchestrator engages local tools (Ponytail minimalism, Graphify AST analysis, and RTK command compression) that run directly on your hardware without consuming your Google account quota, slashing token burn on every account you use.
 
 ---
 
