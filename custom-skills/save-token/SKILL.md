@@ -11,10 +11,10 @@ description: >
   1) Ponytail (YAGNI minimalism), 2) Graphify (zero-token local AST graph), 3) RTK (terminal command compression),
   4) Headroom (input context and log compression), and 5) Caveman (ultra-terse, zero-fluff output protocol).
   Dramatically slashes both input and output token consumption by 50–85% across ALL domains.
-  At the end of every completed task, it MANDATORILY calculates and displays the closing
-  5-Pillar Token Savings Receipt showing exact baseline tokens, actual consumed tokens, and net savings per pillar.
+  At the very TOP of every response/turn, it MANDATORILY calculates and displays the
+  5-Pillar Token Savings Receipt scoreboard at the very beginning before task output.
 metadata:
-  argument-hint: "[task description] — activates 5-pillar token-saver mode with closing savings receipt"
+  argument-hint: "[task description] — activates 5-pillar token-saver mode with top-of-turn savings receipt"
   triggers:
     - "save token"
     - "save tokens"
@@ -74,9 +74,24 @@ If the user's prompt contains **ANY** keyword, command, or conversational phrase
 
 ---
 
-## 🚀 Activation & Immediate Agent Response
+## 🚀 Activation & Immediate Top-of-Response Output
 
-When triggered by any phrase, the agent immediately outputs:
+When triggered, the agent **MUST ALWAYS place the 5-PILLAR TOKEN SAVINGS RECEIPT at the very TOP of the response**:
+
+```markdown
+────────────────────────────────────────────────────────
+🪙 5-PILLAR TOKEN SAVINGS RECEIPT (This Turn)
+• Uncompressed Baseline: ~[Estimated Baseline] tokens
+• Actual Consumed:        ~[Actual Consumed] tokens
+• Total Tokens Saved:    +[Total Saved] tokens ([Percentage]% Reduction)
+  ├─ 🕸️ Graphify (AST vs raw file reads): +[Graphify Saved] tokens
+  ├─ 🗜️ Headroom (Context & log pruner):  +[Headroom Saved] tokens
+  ├─ 🦀 RTK (Terminal diff/test filter):  +[RTK Saved] tokens
+  └─ 🧵 Ponytail + Caveman (No fluff):    +[Caveman/Ponytail Saved] tokens
+────────────────────────────────────────────────────────
+```
+
+Followed immediately by the active mode status and task execution:
 
 ```markdown
 🪙 Token-Saver Mode ACTIVE (5-Pillar Mega-Engine)
@@ -121,23 +136,7 @@ When generating solutions:
 - **Ponytail**: Implement standard library / platform-native features first. No unnecessary packages.
 - **Caveman**: Deliver code and technical answers directly. No "Sure! Here is...", no conversational filler, and no repetitive closing summaries.
 
-### Step 5: Mandatory Closing 5-Pillar Token Savings Receipt
-At the very end of EVERY completed task or turn where `save-token` was engaged, the agent **MUST ALWAYS calculate and display the closing Token Savings Receipt**:
-
-```markdown
-────────────────────────────────────────────────────────
-🪙 5-PILLAR TOKEN SAVINGS RECEIPT
-• Uncompressed Baseline: ~[Estimated Baseline] tokens
-• Actual Consumed:        ~[Actual Consumed] tokens
-• Total Tokens Saved:    +[Total Saved] tokens ([Percentage]% Reduction)
-  ├─ 🕸️ Graphify (AST vs raw file reads): +[Graphify Saved] tokens
-  ├─ 🗜️ Headroom (Context & log pruner):  +[Headroom Saved] tokens
-  ├─ 🦀 RTK (Terminal diff/test filter):  +[RTK Saved] tokens
-  └─ 🧵 Ponytail + Caveman (No fluff):    +[Caveman/Ponytail Saved] tokens
-────────────────────────────────────────────────────────
-```
-
-#### Calculation Formula:
+### Step 5: Calculation Formula for Top Receipt:
 - **Uncompressed Baseline**: The estimated token cost if raw files were read in full, raw test/diff logs were dumped into context, and verbose conversational pleasantries were written.
 - **Actual Consumed**: The actual compact token footprint generated.
 - **Graphify Delta**: Raw file size avoided through localized AST symbol queries ($\approx \text{chars} / 4$).
