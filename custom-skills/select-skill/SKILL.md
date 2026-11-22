@@ -1,6 +1,6 @@
 ---
 name: select-skill
-description: "Universal skill selector and orchestrator covering ALL technical, creative, and engineering domains across 5,000+ installed Antigravity skills. Analyzes any task prompt, maps every required domain, selects the #1 best skill per domain with a detailed description and comparative justification of why it beats the alternatives, presents all available alternative options, and strictly requires user confirmation before execution."
+description: "Universal skill selector and orchestrator covering ALL technical, creative, and engineering domains across 5,000+ installed Antigravity skills. Upon activation, it ALWAYS first provides a comprehensive description of what Antigravity understood from the user's prompt, what the user wants Antigravity to achieve, and the recognized planning scope. Then, it maps every required domain, selects the #1 best skill per domain with an in-depth description and comparative justification of why it beats the alternatives, presents all available alternative options, and strictly requires user confirmation before execution."
 metadata:
   argument-hint: "[task prompt] or [/select skill <task>]"
 ---
@@ -9,7 +9,13 @@ metadata:
 
 `select-skill` is an intelligent skill router and confirmation gate. It operates across **every single installed skill and domain** in Antigravity (5,075+ skills across 19 categories).
 
-For **ANY** prompt or task—regardless of domain or combination of domains—`select-skill` automatically analyzes the requirements, identifies every domain involved, selects the single best primary skill for each domain, **provides an in-depth description of the selected skill and explains exactly why it was chosen as superior to all other alternatives in that domain**, compiles the alternative options, and **always asks for user approval before executing**.
+For **ANY** prompt or task—regardless of domain or combination of domains—`select-skill` automatically:
+1. **First articulates a comprehensive description of what Antigravity understood from the user's prompt, what the user wants from Antigravity, and the recognized planning scope.**
+2. Analyzes the requirements and identifies every domain involved.
+3. Selects the single best primary skill for each domain.
+4. Provides an in-depth description of the selected skill and explains exactly why it was chosen as superior to all other alternatives in that domain.
+5. Compiles alternative options in each domain.
+6. **Always pauses and requires user approval before executing any task.**
 
 ---
 
@@ -39,14 +45,22 @@ For **ANY** prompt or task—regardless of domain or combination of domains—`s
 
 ---
 
-## The Mandatory 4-Step Operational Pipeline
+## The Mandatory 5-Step Operational Pipeline
 
 Whenever `/select skill` or `select skill` is triggered on ANY task:
 
-### Step 1: Multi-Domain Deconstruction
+### Step 1: Prompt Comprehension & Intent Reflection (MANDATORY FIRST STEP)
+Before selecting any skill or performing any actions, Antigravity MUST immediately articulate and output a detailed reflection back to the user:
+- **🧠 What Antigravity Understood From Your Prompt:** Deep, full breakdown of the user's request, core subject matter, context, constraints, and scope.
+- **🎯 What You Want From Antigravity (User Goal & Expectations):** Explicitly states the exact deliverables, goals, and results the user is looking for from Antigravity.
+- **🗺️ Recognized Planning & Architectural Scope:** The initial trajectory, challenges, technical/creative domains involved, and high-level strategy Antigravity sees based on the prompt.
+
+Only AFTER presenting this complete comprehension breakdown does Antigravity proceed to Step 2.
+
+### Step 2: Multi-Domain Deconstruction
 The agent analyzes the user's prompt and identifies **every single domain** necessary to complete the task with high precision. A task may require 1 domain, 2 domains, or 5+ domains simultaneously (e.g., Fullstack App = UI/UX + Frontend + Backend + Database + Security).
 
-### Step 2: Global Skill Scan & Best-in-Class Ranking
+### Step 3: Global Skill Scan & Best-in-Class Ranking
 The agent searches all installed skills in:
 - `C:\Users\anike\.gemini\config\plugins\`
 - `C:\Users\anike\Downloads\Antigravity_Master_Skills_Catalog.txt`
@@ -60,13 +74,20 @@ For **each** identified domain:
 
 ---
 
-### Step 3: Interactive Confirmation Gate with In-Depth Descriptions
+### Step 4: Interactive Confirmation Gate with In-Depth Descriptions
 
 **The agent MUST NEVER start executing code, making edits, or running builds before the user confirms.**  
-It must output the structured plan, complete with skill descriptions and competitive justification, and pause for user input:
+It must output the structured plan, starting with the prompt comprehension summary, complete with skill descriptions and competitive justification, and pause for user input:
 
 ```markdown
-### 🎯 Selected Primary Skills for Your Task
+### 🧠 Step 1: Antigravity Prompt Comprehension & Plan Overview
+- **What Antigravity Understood From Your Prompt:** [Thorough explanation of the task, context, and requirements captured]
+- **What You Want From Antigravity:** [Clear statement of the expected results, deliverables, and final outcomes]
+- **Recognized Planning & Strategy:** [High-level roadmap and architectural scope identified]
+
+---
+
+### 🎯 Step 2: Selected Primary Skills for Your Task
 
 #### Domain: [Domain 1 Name]
 - **Selected #1 Skill:** `[selected-skill-name]`
@@ -91,13 +112,13 @@ It must output the structured plan, complete with skill descriptions and competi
 
 ---
 
-**I have selected these primary skills for your task. Would you like to proceed with this combination, or swap any skill with an alternative from the list above?**
+**I have analyzed your prompt and selected these primary skills. Would you like to proceed with this combination, or swap any skill with an alternative from the list above?**
 *(Reply "Yes, continue" to start, or specify: "Don't use [Skill A], use [Skill B] instead")*
 ```
 
 ---
 
-### Step 4: User Confirmation & Execution
+### Step 5: User Confirmation & Execution
 - **If User Approves ("Yes", "Proceed", "Continue"):** Immediately activate the confirmed primary skills and execute the user's task to completion.
 - **If User Overrides ("Don't use X, use Y instead"):** Swap the skill for that domain to the user's preferred choice, confirm the final setup, and execute immediately.
 
