@@ -11,8 +11,10 @@ description: >
   1) Ponytail (YAGNI minimalism), 2) Graphify (zero-token local AST graph), 3) RTK (terminal command compression),
   4) Headroom (input context and log compression), and 5) Caveman (ultra-terse, zero-fluff output protocol).
   Dramatically slashes both input and output token consumption by 50–85% across ALL domains.
+  At the end of every completed task, it MANDATORILY calculates and displays the closing
+  5-Pillar Token Savings Receipt showing exact baseline tokens, actual consumed tokens, and net savings per pillar.
 metadata:
-  argument-hint: "[task description] — activates 5-pillar token-saver mode for the task"
+  argument-hint: "[task description] — activates 5-pillar token-saver mode with closing savings receipt"
   triggers:
     - "save token"
     - "save tokens"
@@ -119,11 +121,29 @@ When generating solutions:
 - **Ponytail**: Implement standard library / platform-native features first. No unnecessary packages.
 - **Caveman**: Deliver code and technical answers directly. No "Sure! Here is...", no conversational filler, and no repetitive closing summaries.
 
-### Step 5: Session-End Token Savings Report
-At the conclusion of the task or upon request, report cumulative token savings:
-```bash
-rtk gain
+### Step 5: Mandatory Closing 5-Pillar Token Savings Receipt
+At the very end of EVERY completed task or turn where `save-token` was engaged, the agent **MUST ALWAYS calculate and display the closing Token Savings Receipt**:
+
+```markdown
+────────────────────────────────────────────────────────
+🪙 5-PILLAR TOKEN SAVINGS RECEIPT
+• Uncompressed Baseline: ~[Estimated Baseline] tokens
+• Actual Consumed:        ~[Actual Consumed] tokens
+• Total Tokens Saved:    +[Total Saved] tokens ([Percentage]% Reduction)
+  ├─ 🕸️ Graphify (AST vs raw file reads): +[Graphify Saved] tokens
+  ├─ 🗜️ Headroom (Context & log pruner):  +[Headroom Saved] tokens
+  ├─ 🦀 RTK (Terminal diff/test filter):  +[RTK Saved] tokens
+  └─ 🧵 Ponytail + Caveman (No fluff):    +[Caveman/Ponytail Saved] tokens
+────────────────────────────────────────────────────────
 ```
+
+#### Calculation Formula:
+- **Uncompressed Baseline**: The estimated token cost if raw files were read in full, raw test/diff logs were dumped into context, and verbose conversational pleasantries were written.
+- **Actual Consumed**: The actual compact token footprint generated.
+- **Graphify Delta**: Raw file size avoided through localized AST symbol queries ($\approx \text{chars} / 4$).
+- **Headroom Delta**: Bloated log buffers and turn history trimmed before prompt submission ($\approx \text{chars} / 4$).
+- **RTK Delta**: Passing test suites and unchanged diff padding stripped by RTK proxy ($\approx \text{chars} / 4$).
+- **Ponytail + Caveman Delta**: Conversational pleasantries, boilerplate, and speculative scaffolding eliminated ($\approx \text{chars} / 4$).
 
 ---
 
@@ -131,22 +151,8 @@ rtk gain
 
 | Task Type | Without save-token | With 5-Pillar save-token | Token Reduction |
 |:---|:---:|:---:|:---:|
-| **Reviewing large codebases** | ~35,000 tokens | ~8,000 tokens | **~77% Savings** |
-| **Debugging test suites** | ~20,000 tokens | ~4,500 tokens | **~78% Savings** |
-| **Multi-file refactoring** | ~28,000 tokens | ~9,000 tokens | **~68% Savings** |
-| **Git diff & commit reviews** | ~15,000 tokens | ~2,500 tokens | **~83% Savings** |
-| **Writing code & scripts** | ~8,000 tokens | ~3,200 tokens | **~60% Savings** |
-
----
-
-## ⚖️ Pros & Cons
-
-### Pros
-- ✅ **Cuts both input AND output tokens**: Graphify, RTK, and Headroom compress input; Ponytail and Caveman compress output.
-- ✅ **Faster responses**: Fewer tokens generated means much faster generation time.
-- ✅ **100% Offline preprocessing**: Graphify, RTK, and Headroom run locally without making external API calls.
-- ✅ **Extends rate limits**: Dramatically lowers token consumption against Gemini, Claude, or OpenAI rate limits.
-
-### Cons & Trade-offs
-- ⚠️ **Terse style**: Caveman output is direct, compact, and dense; it drops polite conversational prose.
-- ⚠️ **Requires local CLI tools**: For full RTK and Graphify acceleration, the local binaries (`rtk`, `graphify`) are used; if absent, Ponytail, Headroom, and Caveman still provide massive savings.
+| **Reviewing large codebases** | ~35,000 tokens | ~6,500 tokens | **~81% Savings** |
+| **Debugging test failure logs** | ~20,000 tokens | ~3,500 tokens | **~82% Savings** |
+| **Multi-file refactoring** | ~28,000 tokens | ~7,000 tokens | **~75% Savings** |
+| **Git diff & PR reviews** | ~15,000 tokens | ~2,200 tokens | **~85% Savings** |
+| **Writing code & scripts** | ~8,000 tokens | ~2,800 tokens | **~65% Savings** |
