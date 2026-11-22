@@ -1,53 +1,55 @@
 ---
 name: select-skill
-description: "Universal skill selector and orchestrator covering ALL technical, creative, and engineering domains across 5,000+ installed Antigravity skills. Upon activation, it ALWAYS first provides a comprehensive description of what Antigravity understood from the user's prompt, what the user wants Antigravity to achieve, and the recognized planning scope. Then, it maps every required domain, selects the #1 best skill per domain with an in-depth description and comparative justification of why it beats the alternatives, presents all available alternative options, and strictly requires user confirmation before execution."
+description: "ULTRA-HIGH SENSITIVITY TRIGGER. Trigger this skill PROACTIVELY and IMMEDIATELY whenever the user writes, mentions, or implies selecting skills, picking tools, routing domains, choosing best agents, or evaluating options across Antigravity's 5,000+ skills. Even a casual keyword or partial phrase (e.g. 'select skill', 'pick skill', 'choose tools', 'which skill', 'route this') MUST instantly activate this skill. Upon activation, it ALWAYS first outputs a comprehensive description of what Antigravity understood from the prompt, what the user wants from Antigravity, and the recognized planning scope. Then, it maps every required domain, selects the #1 best skill per domain with an in-depth description and comparative justification of why it beats the alternatives, presents all available alternative options, and strictly requires user confirmation before execution."
 metadata:
-  argument-hint: "[task prompt] or [/select skill <task>]"
+  argument-hint: "[task prompt] or [select skill <task>]"
+  triggers:
+    - "select skill"
+    - "select-skill"
+    - "/select skill"
+    - "/select-skill"
+    - "select skills"
+    - "choose skill"
+    - "choose skills"
+    - "pick skill"
+    - "pick skills"
+    - "which skill"
+    - "which skills"
+    - "what skill"
+    - "what skills"
+    - "find skill"
+    - "find skills"
+    - "best skill"
+    - "best skills"
+    - "route skill"
+    - "route skills"
+    - "skill selector"
+    - "skill routing"
+    - "skill selection"
+    - "recommend skill"
+    - "recommend skills"
+    - "suggest skill"
+    - "suggest skills"
+    - "select agent"
+    - "pick agent"
+    - "choose agent"
+    - "what tool should I use"
+    - "which tool is best"
+    - "pick the right skill"
 ---
 
 # Select Skill — Universal Multi-Domain Antigravity Skill Orchestrator
 
-`select-skill` is an intelligent skill router and confirmation gate. It operates across **every single installed skill and domain** in Antigravity (5,075+ skills across 19 categories).
+`select-skill` is an ultra-sensitive, intelligent skill router and confirmation gate. It operates across **every single installed skill and domain** in Antigravity (5,075+ skills across 19 categories).
 
-For **ANY** prompt or task—regardless of domain or combination of domains—`select-skill` automatically:
-1. **First articulates a comprehensive description of what Antigravity understood from the user's prompt, what the user wants from Antigravity, and the recognized planning scope.**
-2. Analyzes the requirements and identifies every domain involved.
-3. Selects the single best primary skill for each domain.
-4. Provides an in-depth description of the selected skill and explains exactly why it was chosen as superior to all other alternatives in that domain.
-5. Compiles alternative options in each domain.
-6. **Always pauses and requires user approval before executing any task.**
-
----
-
-## Universal Domain Coverage (All-Encompassing)
-
-`select-skill` actively scans and routes across **ALL** domains:
-
-1. **Backend & Architecture**: Node.js, Python, Go, Rust, Java, C#, PHP, C++, FastAPI, Django, Spring Boot, microservices, gRPC, REST, GraphQL.
-2. **Frontend & Web**: React, Next.js, Vue, Nuxt, Svelte, Angular, Modern Web standards, SSR/SSG.
-3. **UI/UX & Design Systems**: UI component design, Tailwind, Shadcn, design tokens, responsive layouts, accessibility (WCAG), typography, human interface guidelines.
-4. **3D Modeling & Rendering**: Blender automation, Three.js, React Three Fiber (R3F), Spline, WebGL/WebGPU, mesh processing, geometry conversions.
-5. **Video Editing & VFX**: FFmpeg processing, Remotion code-based video, HyperFrames, DaVinci Resolve, premiere workflows, shotcraft, camera transitions, subtitle generators.
-6. **Photo Editing & Generative Media**: Image manipulation, ImageMagick, OpenCV, Pillow, background removal, photo restoration, AI image synthesis.
-7. **Audio & Sound Design**: Audio stem separation, mastering, voice synthesis/cloning, Foley SFX, podcast audio cleanup, MIDI/music generation.
-8. **Databases & Data Engineering**: PostgreSQL, MySQL, SQLite, MongoDB, Redis, BigQuery, AlloyDB, Cloud SQL, Firestore, vector databases, ETL pipelines.
-9. **DevOps, Cloud & Infrastructure**: Docker, Kubernetes, Terraform, Helm, AWS, Azure, GCP, Cloudflare, Linux server hardening, CI/CD automation.
-10. **Cybersecurity & Pen-Testing**: Red-teaming, vulnerability hunting, API security, JWT/OAuth crypto, SAST/DAST, penetration testing, reverse engineering.
-11. **Testing & Quality Assurance**: Playwright E2E, Jest, Pytest, Vitest, integration testing, fuzzing, bug hunting, CodeRabbit code auditing.
-12. **Mobile & Cross-Platform**: React Native, Expo, Flutter, iOS (Swift/SwiftUI), Android (Kotlin/Jetpack Compose).
-13. **AI, ML & LLM Engineering**: RAG pipelines, fine-tuning, embeddings, prompt engineering, agent evaluations, inference optimization.
-14. **Game Development & Physics**: Unity, Godot (GDScript/C#), Unreal Engine, 2D/3D physics (Rapier, Matter.js), ECS architecture.
-15. **Embedded & Systems Engineering**: Bare-metal C/C++, ESP32, STM32, ARM Cortex, FreeRTOS, Zephyr, firmware auditing.
-16. **Blockchain & Web3**: Solidity, EVM, Solana, smart contract security audits, DeFi protocols, Web3 testing.
-17. **Business, Marketing, SEO & Content**: Programmatic SEO, conversion rate optimization, technical copywriting, competitor analytics.
-18. **Science, Research & Bioinformatics**: AlphaGenome, genomics, protein folding, scientific literature search, statistical analysis.
-19. **Project Management & Spec-Driven Development**: GSD (Get Stuff Done), Conductor, architecture decision records, spec-driven development.
+## ⚡ Ultra-High Sensitivity Triggering
+If the user's prompt contains **ANY** keyword, command, or conversational phrase related to selecting or choosing skills/tools (e.g., `select skill`, `pick skill`, `choose skill`, `which skill`, `what skills to use`, `find best skill`), the agent **MUST IMMEDIATELY trigger this skill without hesitation**.
 
 ---
 
 ## The Mandatory 5-Step Operational Pipeline
 
-Whenever `/select skill` or `select skill` is triggered on ANY task:
+Whenever triggered on ANY task:
 
 ### Step 1: Prompt Comprehension & Intent Reflection (MANDATORY FIRST STEP)
 Before selecting any skill or performing any actions, Antigravity MUST immediately articulate and output a detailed reflection back to the user:
@@ -124,11 +126,25 @@ It must output the structured plan, starting with the prompt comprehension summa
 
 ---
 
-## Trigger Phrases
+## Universal Domain Coverage (All-Encompassing)
 
-`select-skill` automatically executes when the prompt includes:
-- `/select skill <prompt>`
-- `/select-skill <prompt>`
-- `select skill for <prompt>`
-- `choose the best skills for <prompt>`
-- `pick skills and ask me before starting <prompt>`
+`select-skill` actively scans and routes across **ALL** 19 domains:
+1. Backend & Architecture
+2. Frontend & Web
+3. UI/UX & Design Systems
+4. 3D Modeling & Rendering
+5. Video Editing & VFX
+6. Photo Editing & Generative Media
+7. Audio & Sound Design
+8. Databases & Data Engineering
+9. DevOps, Cloud & Infrastructure
+10. Cybersecurity & Pen-Testing
+11. Testing & Quality Assurance
+12. Mobile & Cross-Platform
+13. AI, ML & LLM Engineering
+14. Game Development & Physics
+15. Embedded & Systems Engineering
+16. Blockchain & Web3
+17. Business, Marketing, SEO & Content
+18. Science, Research & Bioinformatics
+19. Project Management & Spec-Driven Development (GSD)

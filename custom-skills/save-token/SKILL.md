@@ -1,33 +1,61 @@
 ---
 name: save-token
 description: >
-  Token-Saver Orchestrator — When activated with "save token", "/save token",
-  or "use save-token", this skill immediately engages the full Ponytail + Graphify + RTK
-  stack to minimize AI token consumption across ALL domains and all task types.
-  It runs graphify update (zero-token local AST parse), activates RTK command wrappers
-  for every terminal operation, enforces YAGNI minimalism on all code generation,
-  and reports token savings at session end. Works globally for any domain:
-  code, writing, design, science, business, media — anything.
+  ULTRA-HIGH SENSITIVITY TRIGGER. Trigger this skill PROACTIVELY and IMMEDIATELY whenever
+  the user writes, mentions, or implies saving tokens, cutting token consumption, reducing AI cost,
+  conserving context budget, using RTK, or updating Graphify. Even a casual phrase or keyword
+  (e.g. 'save token', 'save tokens', 'cut tokens', 'reduce tokens', 'token saver', 'low tokens',
+  'cheap tokens', 'budget tokens', 'less tokens', 'rtk') MUST instantly activate this skill.
+  Upon activation, it immediately engages the full Ponytail + Graphify + RTK stack to minimize
+  AI token consumption across ALL domains and all task types. It runs graphify update (zero-token
+  local AST parse), activates RTK command wrappers for every terminal operation, enforces YAGNI
+  minimalism on all code generation, and reports token savings at session end.
 metadata:
   argument-hint: "[task description] — activates token-saver mode for the described task"
   triggers:
     - "save token"
+    - "save tokens"
+    - "save-token"
+    - "save-tokens"
     - "/save token"
     - "/save-token"
-    - "use save-token"
-    - "activate save token"
+    - "/save tokens"
     - "token saver"
+    - "token saving"
+    - "token savings"
+    - "save my tokens"
+    - "save our tokens"
+    - "reduce tokens"
+    - "reduce token"
+    - "cut tokens"
+    - "cut token"
+    - "less tokens"
+    - "low tokens"
+    - "low token"
+    - "cheap tokens"
+    - "conserve tokens"
+    - "token budget"
+    - "token efficiency"
     - "enable token saving"
+    - "activate save token"
+    - "use save-token"
+    - "stop wasting tokens"
+    - "minimize tokens"
+    - "rtk"
+    - "graphify update"
 ---
 
 # save-token — Universal Token-Saver Orchestrator
 
 ## What This Skill Does
 
-`save-token` is a **meta-orchestrator skill** that activates three complementary
+`save-token` is an **ultra-sensitive meta-orchestrator skill** that activates three complementary
 token-reduction strategies simultaneously, dramatically cutting the number of AI
 tokens consumed per task — across **every domain** (code, writing, design,
 research, business, science, media, mobile, 3D, gaming, etc.).
+
+## ⚡ Ultra-High Sensitivity Triggering
+If the user's prompt contains **ANY** keyword, command, or conversational phrase related to saving or reducing tokens (e.g., `save token`, `save tokens`, `reduce tokens`, `cut tokens`, `token saver`, `low tokens`, `conserve tokens`, `rtk`), the agent **MUST IMMEDIATELY engage this skill without hesitation**.
 
 ### The Three Pillars
 
@@ -41,16 +69,17 @@ research, business, science, media, mobile, 3D, gaming, etc.).
 
 ## Activation
 
-Type **any** of the following in a prompt or conversation:
+Type **any** trigger in a prompt or conversation:
 
 ```
 save token
 /save token
-/save-token
-use save-token
-activate save token
+save tokens
+cut tokens
+reduce tokens
 token saver
-enable token saving
+low tokens
+rtk
 ```
 
 The agent will immediately print:
@@ -109,101 +138,15 @@ This prints the estimated token savings for the session.
 ## Domain Coverage
 
 This skill works for **ALL** domains — not just code:
-
-| Domain | How save-token Helps |
-|--------|---------------------|
-| **Code / Backend** | Graphify graph replaces reading entire codebases; RTK compresses diffs/tests |
-| **Frontend / UI** | Ponytail prevents over-engineering components; minimal CSS-first approach |
-| **Writing / Docs** | Outputs only the requested section; no filler intros/outros |
-| **Design Systems** | Reuses existing tokens/variables from graph; no redundant definitions |
-| **Science / Research** | Minimal literature summaries; no padding; graph-indexed datasets |
-| **Business / Finance** | Concise reports; no boilerplate executive summaries unless asked |
-| **Mobile / iOS / Android** | Native platform APIs first; no extra packages |
-| **3D / Game Dev** | Reuses existing asset graphs; minimal shader/script output |
-| **DevOps / CI** | RTK git/diff wrappers; minimal YAML; no unused pipeline steps |
-| **Testing / QA** | RTK test output; only failing assertions; no verbose logs |
-| **Video / Media** | Minimal ffmpeg chains; no intermediate files unless needed |
-| **Data Science / ML** | Minimal preprocessing chains; no boilerplate notebooks |
-
----
-
-## Real Usage Examples
-
-### Example 1 — Code Task
-```
-User: save token. Now refactor the auth module.
-
-Agent: 🪙 Token-Saver Mode ACTIVE
-       Running: graphify update .
-       Querying graph for auth module structure...
-       [Ponytail: implementing only what's asked — no boilerplate]
-       [RTK: rtk diff will show changes]
-```
-
-### Example 2 — Writing Task
-```
-User: save token. Write a product description for my SaaS tool.
-
-Agent: 🪙 Token-Saver Mode ACTIVE
-       [Ponytail: 3-sentence output — no filler sections]
-       <concise product description>
-       [rtk gain: ~400 tokens saved vs. verbose mode]
-```
-
-### Example 3 — DevOps Task
-```
-User: save token. Debug why my CI pipeline is failing.
-
-Agent: 🪙 Token-Saver Mode ACTIVE
-       Running: rtk err (compressed error trace)
-       Root cause: [single line diagnosis]
-       Fix: [minimal change only]
-```
-
----
-
-## How to Use
-
-1. **Start any task with:** `save token` or `/save token`
-2. **Describe your task** in the same prompt or the next message.
-3. The agent handles everything automatically — Ponytail, Graphify, RTK.
-4. At any point type `rtk gain` to see how many tokens you've saved.
-5. To disable: `disable save token` or just start a new session.
-
----
-
-## Pros
-
-- ✅ **Universal** — works on every domain, not just code
-- ✅ **Zero extra API calls** — Graphify runs fully locally (Rust binary)
-- ✅ **Automatic** — no manual configuration per task
-- ✅ **Composable** — stacks with any other skill (GSD, RTK, Ponytail are still active)
-- ✅ **Measurable** — `rtk gain` gives real savings data
-- ✅ **Minimal prompt overhead** — activation phrase is just 2 words
-- ✅ **Cross-platform** — works on Windows, macOS, Linux
-
-## Cons / Limitations
-
-- ⚠️ **Graphify update requires project files** — works best in a code/file-rich workspace; for pure conversation tasks, Graphify step is skipped automatically
-- ⚠️ **RTK binary must be installed** — `winget install rtk` or `cargo install rtk`; skill degrades gracefully if not found (Ponytail + Graphify still active)
-- ⚠️ **Ponytail may feel "terse"** — intentionally minimal output; ask for elaboration explicitly if needed
-- ⚠️ **Token savings are estimates** — `rtk gain` reports compression ratios, not exact model token counts
-
----
-
-## Token Saving Potential
-
-| Scenario | Estimated Saving |
-|----------|-----------------|
-| Reviewing large codebases | 40–70% fewer tokens |
-| Multi-file refactoring | 30–60% fewer tokens |
-| Test output debugging | 50–80% fewer tokens |
-| Documentation writing | 20–40% fewer tokens |
-| Git diff analysis | 60–85% fewer tokens |
-
----
-
-## References
-- Ponytail: `C:\Users\anike\.gemini\config\plugins\agentic-awesome-skills\skills\ponytail\SKILL.md`
-- Graphify: `C:\Users\anike\.gemini\config\plugins\agentic-awesome-skills\skills\graphify\SKILL.md`
-- RTK: `C:\Users\anike\.gemini\config\plugins\agentic-awesome-skills\skills\rtk\SKILL.md`
+- Code / Backend
+- Frontend / UI
+- Writing / Docs
+- Design Systems
+- Science / Research
+- Business / Finance
+- Mobile / iOS / Android
+- 3D / Game Dev
+- DevOps / CI
+- Testing / QA
+- Video / Media
+- Data Science / ML
