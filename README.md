@@ -55,7 +55,7 @@ This table shows every domain in the vault, the exact number of skills it contai
 
 | # | Domain | Skills | What It Does For You |
 |:---:|:---|:---:|:---|
-| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` coordinates the Memory-First 5-Pillar Token-Saving Mega-Engine (Anima/AgentKits memory offloading + Ponytail + Graphify + RTK + Headroom + Caveman) to eliminate 200k+ chat history context re-transmissions and slash token burn by 70–95% across all tasks. |
+| 🎛️ | **[Universal Orchestration](./custom-skills/)** (`custom-skills`) | **3** | Routes any task to the right skill domain. `select-skill` deconstructs complex tasks and picks the best tool. `ask-question` acts as a Socratic architect, clarifying your project requirements before writing a single line of code. `save-token` coordinates the Memory-First 5-Pillar Token-Saving Mega-Engine (Anima/AgentKits memory offloading + Ponytail + Graphify + RTK + Headroom + Caveman + Turn Tracker `/compact` alerts) to eliminate 200k+ chat history context re-transmissions and slash token burn by 70–95% across all tasks. |
 | 01 | **[3D Modeling & Rendering](./01-3d-modeling-and-rendering/)** | **7** | Automate Blender via Python, convert 3D file formats (GLTF, OBJ, FBX, STL), process meshes, train 3D Gaussian Splats, build Three.js / WebGPU scenes, and generate AI 3D models from text or images. |
 | 02 | **[Audio & Sound Engineering](./02-audio-and-sound-engineering/)** | **51** | Separate vocal and instrumental stems, master audio to broadcast loudness standards (LUFS), transcribe with speaker diarization, clone voices, synthesize TTS audiobooks and podcasts, and integrate live audio streaming APIs. |
 | 03 | **[Autonomous Agents & AI](./03-autonomous-agents-and-ai/)** | **218** | Design multi-agent swarm architectures, build evaluation and regression benchmarking suites, optimize prompt caching to slash LLM costs, manage agent memory and tool execution sandboxes, and enforce human-in-the-loop approval gates. |
@@ -92,7 +92,7 @@ These three skills act as the **front door** of the entire vault. They are desig
 |:---|:---|:---|
 | `select-skill` | `/select skill <task>` | Deconstructs any complex task across all 18 domains, selects the top-ranked skill per domain, shows alternatives, and waits for your confirmation before executing. |
 | `ask-question` | `/ask question <idea>` | Socratic interrogation engine — asks targeted, numbered clarification questions about architecture, edge cases, data models, and UI flow. Produces a phase-by-phase blueprint and delegates to `select-skill`. |
-| `save-token` | `save token`, `/save token`, `headroom`, `caveman` | 5-Pillar Token-Saver Mega-Engine — simultaneously activates **Ponytail** (YAGNI minimalism), **Graphify** (zero-token local AST graph), **RTK** (terminal output compression: `rtk diff`, `rtk test`, `rtk err`), **Headroom** (input context and log pruner), and **Caveman** (ultra-terse zero-fluff output protocol). Cuts AI token usage by 50–85% across ALL domains. |
+| `save-token` | `save token`, `/save token`, `headroom`, `caveman` | Memory-First Multi-Engine Token-Saver & Turn Tracker — coordinates **Memory Offloading** (`anima-memory`, `agentkits-memory`, `claude-mem`), **Ponytail** (YAGNI minimalism), **Graphify** (zero-token local AST graph), **RTK** (terminal output compression), **Headroom** (input log pruner), **Caveman** (ultra-terse output protocol), and **Turn Cadence Tracker** (monitors turns and triggers prominent alerts at Turn 10 to run `/compact`). Cuts AI token usage by 70–95% across ALL domains. |
 
 **When to use:**
 > You have a complex task like *"Build a real-time collaborative whiteboard with authentication"* but you're not sure where to start. Run `/ask question` and the agent will methodically extract every missing requirement and produce a complete action plan. Then type `save token` before any heavy task to slash token consumption automatically.
@@ -420,17 +420,17 @@ Located in [`custom-skills/`](./custom-skills/), these three skills work with **
 
 ---
 
-### `save-token` — 5-Pillar Universal Token-Saver Mega-Engine
+### `save-token` — Memory-First Multi-Engine Token-Saver & Turn Tracker
 **Trigger:** `save token`, `/save token`, `save tokens`, `headroom`, `caveman`
 
 **How it works:**
 1. You type `save token` at the start of any message, then describe your task.
-2. **Headroom** kicks in first — compresses input context, bloated logs, and trims repetitive conversation turns by 40–70%.
-3. **Graphify** runs `graphify update .` locally (zero AI tokens) and builds an AST knowledge graph of your project so the agent queries the graph instead of re-reading raw files (70–85% input token reduction).
-4. **RTK** wrappers activate: `rtk diff`, `rtk test`, `rtk err`, `rtk git` compress terminal outputs to essential lines before reaching the LLM context.
-5. **Ponytail** enforces YAGNI minimalism — writes only what was requested, stdlib-first, no speculative boilerplate.
-6. **Caveman** mode removes conversational filler, polite pleasantries, and unnecessary introductory/concluding prose, delivering direct, high-density responses (40–60% output token reduction).
-7. At session end, `rtk gain` reports how many tokens were saved.
+2. **Memory Offloading** condenses bloated chat context into compact local state files (`.ai/memory/`, `.planning/`), eliminating 200k+ token history re-transmissions.
+3. **Headroom** compresses input context, bloated logs, and trims repetitive conversation turns by 40–70%.
+4. **Graphify & Muscle-Memory** query local AST knowledge graphs and replay cached patterns with zero AI tokens.
+5. **RTK** wrappers activate: `rtk diff`, `rtk test`, `rtk err`, `rtk git` compress terminal outputs to essential lines before reaching the LLM context.
+6. **Ponytail & Caveman** enforce YAGNI minimalism and strip conversational filler, delivering direct, high-density responses.
+7. **Turn Tracker & Automated /compact Alerts:** Monitors turns in the current compaction cycle. At Turn 10 (and multiples of 10), prominently alerts you to type `/compact` in the chat box to wipe transcript bloat with zero memory loss.
 
 **Example:**
 ```
