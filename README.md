@@ -580,6 +580,20 @@ Your agent automatically detects and loads any skills placed in `./.skills/`.
 
 ---
 
+### 🛡️ Pre-Installation Security Gate: NVIDIA SkillSpector
+
+To protect your local environment from malware, malicious shell injection, token exfiltration, and prompt injection attacks, all new skills and external GitHub repositories are pre-screened with **SkillSpector**:
+
+```bash
+skillspector scan path/to/skill-or-repo
+```
+
+- **Clean / Safe (0–20)**: Automatically approved and safe for global installation.
+- **Risk Detected (>20)**: Installation halts immediately, alerting the operator with a full vulnerability breakdown for human approval.
+
+
+---
+
 ## 🧬 Anatomy of a Skill
 
 Every skill in the vault follows the same directory structure so agents load them consistently:
