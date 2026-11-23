@@ -1,6 +1,6 @@
 ---
 name: gsd-plan-phase
-description: "Create detailed phase plan (PLAN.md) with verification loop"
+description: "Create detailed phase plan (PLAN.md) with verification loop and step-by-step task structuring"
 argument-hint: "[phase] [--auto] [--research] [--skip-research] [--research-phase <N>] [--view] [--gaps] [--skip-verify] [--skip-ui] [--prd <file>] [--ingest <path-or-glob>] [--ingest-format <auto|nygard|madr|narrative>] [--reviews] [--text] [--bounce] [--skip-bounce] [--chunked] [--tdd] [--mvp] [--granularity <coarse|standard|fine>] [--no-tracer] [--no-reversibility-gates]"
 allowed-tools:
   - Read
@@ -22,7 +22,10 @@ The text inside `<arguments>` is exactly what the user typed after the command n
 <objective>
 Create executable phase prompts (PLAN.md files) for a roadmap phase with integrated research and verification.
 
-**Default flow:** Research (if needed) → Plan → Verify → Done
+**Prompt-Driven Auto-Structuring Directive:**
+When invoked (or auto-triggered by planning keywords like "plan", "structure", "step by step", "break down", "roadmap"), take the user's prompt/intent and immediately structure it into a comprehensive, step-by-step execution plan (`PLAN.md` specification data). Emit and display this full structured plan data clearly to the user. Then, pause for user confirmation before sequentially executing the planned tasks one by one.
+
+**Default flow:** Research (if needed) → Plan (Emit Structured Plan Data) → Pause for User Approval → Execute One-by-One → Verify → Done
 
 **Research-only mode (`--research-phase <N>`):** Spawn `gsd-phase-researcher` for phase `N`, write `RESEARCH.md`, then exit before the planner runs. Useful for cross-phase research, doc review before committing to a planning approach, and correction-without-replanning loops where iterating on research alone is dramatically cheaper than re-spawning the planner. Replaces the deleted research-phase command (#3042).
 
@@ -64,6 +67,10 @@ Normalize phase input in step 2 before any directory lookups.
 </context>
 
 <process>
-Execute end-to-end.
+Execute end-to-end:
+1. Auto-structure user prompt into clear step-by-step plan data.
+2. Present full plan specification data to user.
+3. Pause for user confirmation.
+4. Execute planned steps one by one upon approval.
 Preserve all workflow gates (validation, research, planning, verification loop, routing).
 </process>
